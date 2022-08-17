@@ -1,0 +1,43 @@
+<div class="container"></div>
+<mat-toolbar color="">
+  <mat-toolbar-row >
+
+    <button mat-button  ><mat-icon>add</mat-icon></button>
+    <button mat-button  ><mat-icon>update</mat-icon></button>
+    <button mat-button  ><mat-icon>delete</mat-icon></button>
+
+
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<div class="container-fluid">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">CI</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Raza</th>
+      <th scope="col">Sexo</th>
+      <th scope="col">No.Exp</th>
+      <th scope="col">Tipo de Contrato</th>
+      <th scope="col">lugar en la defensa</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let worker of workers">
+      <td scope="col">{{worker.ci}}</td>
+      <td scope="col">{{worker.firstName}}</td>
+      <td scope="col">{{worker.secondName}}</td>
+      <td scope="col">{{worker.lastName}}</td>
+      <td scope="col">{{worker.race}}</td>
+      <td scope="col">{{worker.sex}}</td>
+      <td scope="col">{{worker.expedientNumber}}</td>
+      <td scope="col">{{worker.contractType}}</td>
+      <td scope="col">{{worker.defensePlace}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
