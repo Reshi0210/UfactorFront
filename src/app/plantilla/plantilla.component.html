@@ -24,6 +24,12 @@
       <th scope="col">No.Exp</th>
       <th scope="col">Tipo de Contrato</th>
       <th scope="col">lugar en la defensa</th>
+      <th scope="col">organos</th>
+      <th scope="col">escolaridad</th>
+      <th scope="col">cargo</th>
+      <th scope="col">Grupo Escala</th>
+      <th scope="col">Departamento</th>
+
     </tr>
   </thead>
   <tbody >
@@ -37,6 +43,18 @@
       <td scope="col">{{worker.expedientNumber}}</td>
       <td scope="col">{{worker.contractType}}</td>
       <td scope="col">{{worker.defensePlace}}</td>
+      <td scope="col"><p *ngFor="let political of worker.politiclist">
+      {{political.organ}}
+      </p></td>
+      <td scope="col"><p *ngFor="let scholar of worker.scholarShiplist">
+        {{scholar.scholarName}}<br>
+        {{scholar.scholarLevel}}
+                    </p></td>
+       <td scope="col">{{worker.position.positionName}}</td>
+       <td scope="col">{{worker.position.scaleGroup.scale}}</td>
+       <td scope="col">{{worker.department.departamentName}}</td>
+
+
     </tr>
   </tbody>
 </table>

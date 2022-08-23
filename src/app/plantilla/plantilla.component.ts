@@ -19,9 +19,16 @@ export class PlantillaComponent implements OnInit {
 
 public workers!: Worker[];
 
+
+
 private getall(){
 
   this.plantS.getWorkersList().subscribe(data=> {this.workers=data});
+
+
   }
+
+
+
 
 }

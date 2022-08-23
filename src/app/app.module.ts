@@ -18,11 +18,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     PlantillaComponent,
-    ContratosComponent
+    ContratosComponent,
+
   ],
   imports: [
     BrowserModule,
