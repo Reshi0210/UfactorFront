@@ -1,0 +1,92 @@
+
+<div class="container">
+<h1>Introduzca los datos del nuevo empleado</h1>
+
+
+
+<form  (ngSubmit)="onSubmit()" #myform="ngForm">
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" class="form-control" name="name" [(ngModel)]="worker.firstName" >
+ </div>
+
+ <div class="form-group">
+  <label>Primer Apellido</label>
+  <input type="text" class="form-control" name="apellido1" [(ngModel)]="worker.secondName" >
+</div>
+
+<div class="form-group">
+  <label>Segundo Apellido</label>
+  <input type="text" class="form-control" name="apellido2" [(ngModel)]="worker.lastName" >
+</div>
+
+<div class="form-group">
+  <label>CI</label>
+  <input type="text" class="form-control" name="ci" [(ngModel)]="worker.ci" >
+</div>
+
+<div class="form-group">
+  <label>Numero de Expediente</label>
+  <input type="text" class="form-control" name="expedienten" [(ngModel)]="worker.expedientNumber" >
+</div>
+
+<div >
+  <label >Sexo</label>
+<select class="form-select" name="selects" [(ngModel)]="worker.sex">
+  <option [value]="item" *ngFor="let item of listaSexo">{{item}}</option>
+  </select>
+</div>
+<div >
+  <label >lugar en la defensa</label>
+<select class="form-select" name="selectd" [(ngModel)]="worker.defensePlace">
+  <option [value]="item" *ngFor="let item of listaDefensa">{{item}}</option>
+  </select>
+</div>
+<div >
+  <label >raza</label>
+<select class="form-select" name="selectr" [(ngModel)]="worker.race">
+  <option [value]="item" *ngFor="let item of listaRaza">{{item}}</option>
+  </select>
+</div>
+<div >
+  <label >Tipo de contrato</label>
+<select class="form-select" name="selectco" [(ngModel)]="worker.contractType">
+  <option [value]="item" *ngFor="let item of listaContrato">{{item}}</option>
+  </select>
+</div>
+<div>
+<label >Departamento</label>
+<select class="form-select" name="selectdep" [(ngModel)]="worker.department">
+  <option [ngValue]="item" *ngFor="let item of ListaDepartamentos">{{item.departamentName}}</option>
+  </select>
+</div>
+<div>
+  <label >Cargo</label>
+  <select class="form-select" name="selectdcar" [(ngModel)]="worker.position">
+    <option [ngValue]="item" *ngFor="let item of ListaPositions">{{item.positionName}}</option>
+    </select>
+  </div>
+  <div>
+    <label >integraciones politicas</label>
+    <select class="form-select" name="selectpol" [(ngModel)]="worker.politiclist" multiple="multiple"> >
+      <option [ngValue]="item" *ngFor="let item of ListaPolitic">{{item.organ}}</option>
+      </select>
+    </div>
+    <div>
+      <label >Escolaridades</label>
+      <select class="form-select" name="selectes" [(ngModel)]="worker.scholarShiplist" multiple="multiple"> >
+        <option [ngValue]="item" *ngFor="let item of ListaScholar">{{item.scholarName}}</option>
+        </select>
+      </div>
+<br>
+<div >
+<button class="btn btn-success" type="submit">Agregar</button>
+</div>
+
+
+</form>
+</div>
+
+
+
+

@@ -13,6 +13,6 @@ export class PlantillaServiceService {
   constructor(private httpc:HttpClient) { }
 
   getWorkersList():Observable<Worker[]>{
-    return  this.httpc.get<Worker[]>(`${this.allurl}` );
+    return  this.httpc.get<Worker[]>(`${this.allurl}`);
   }
 }
