@@ -16,6 +16,8 @@ export class CreateWorkerService {
   allpolUrl:String="http://localhost:8092/api/v1/politic/all"
   allscholUrl:String="http://localhost:8092/api/v1/scholar/all"
   createUrl:String="http://localhost:8092/api/v1/create"
+  findByidUrl:String="http://localhost:8092/api/v1/findById"
+  updateUrl:String="http://localhost:8092/api/v1/update"
 
   constructor(private httpc:HttpClient) { }
 
@@ -37,5 +39,13 @@ export class CreateWorkerService {
 createWorker(worker:Worker):Observable<object>{
  return this.httpc.post(`${this.createUrl}`,worker)
 }
+
+getWorkerById(id:number):Observable<Worker>{
+  return this.httpc.get<Worker>(`${this.findByidUrl}/${id}`);
+}
+
+updateWorker(id:number,worker:Worker):Observable<object>{
+  return this.httpc.put(`${this.updateUrl}/${id}`,worker)
+ }
 
 }

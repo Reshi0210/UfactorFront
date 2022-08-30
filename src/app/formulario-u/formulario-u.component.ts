@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Department } from '../models/department';
 import { PoliticIntegration } from '../models/politic-integration';
 import { Position } from '../models/position';
@@ -8,13 +8,21 @@ import { Worker } from '../models/worker';
 import { CreateWorkerService } from '../Services/create-worker.service';
 
 @Component({
-  selector: 'app-formulario-i',
-  templateUrl: './formulario-i.component.html',
-  styleUrls: ['./formulario-i.component.css']
+  selector: 'app-formulario-u',
+  templateUrl: './formulario-u.component.html',
+  styleUrls: ['./formulario-u.component.css']
 })
-export class FormularioIComponent implements OnInit {
+export class FormularioUComponent implements OnInit {
 
- worker:Worker=new Worker ();
+
+
+  ngOnInit(): void {
+    this.id=this.aroute.snapshot.params["id"];
+    this.getfirst();
+    this.getAll();
+  }
+  worker:Worker=new Worker ();
+  id!:number;
 
 
   listaSexo:String[]=["M","F"];
@@ -26,12 +34,9 @@ export class FormularioIComponent implements OnInit {
   ListaPolitic!:PoliticIntegration[];
   ListaScholar!:Scholarship[];
 
-  constructor(private createWorkerService:CreateWorkerService,private route:Router) { }
+  constructor(private createWorkerService:CreateWorkerService,private route:Router,private aroute:ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.getAll();
 
-  }
 
   onSubmit():void{
    this.saveNewWorker();
@@ -39,18 +44,21 @@ export class FormularioIComponent implements OnInit {
 
   }
 
+  getfirst(){this.createWorkerService.getWorkerById(this.id).subscribe(data=>{this.worker=data})}
+
   getAll(){
   this.createWorkerService.getAllDepartment().subscribe(data=>{this.ListaDepartamentos=data})
   this.createWorkerService.getAllpositions().subscribe(data=>{this.ListaPositions=data})
   this.createWorkerService.getAllPolitics().subscribe(data=>{this.ListaPolitic=data})
   this.createWorkerService.getAllScholars().subscribe(data=>{this.ListaScholar=data})
+
           }
 
    saveNewWorker()   {
-  this.createWorkerService.createWorker(this.worker).subscribe(data=>{
-     console.log(data);
-     alert("empleado Creado con exito");
-     this.goToPlantilla();
+  this.createWorkerService.updateWorker(this.id,this.worker).subscribe(data=>{
+    console.log(data);
+    alert("los datos del empleado han sido actualziados");
+    this.goToPlantilla();
   })
  }
 
@@ -60,3 +68,5 @@ this.route.navigate(["/plantilla"]);
  }
 
 }
+
+

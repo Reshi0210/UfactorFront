@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Worker } from '../models/worker';
 import { PlantillaServiceService } from '../Services/plantilla-service.service';
 
@@ -10,7 +11,7 @@ import { PlantillaServiceService } from '../Services/plantilla-service.service';
 export class PlantillaComponent implements OnInit {
 
 
-  constructor(private plantS:PlantillaServiceService) { }
+  constructor(private plantS:PlantillaServiceService,private route:Router) { }
 
 
   ngOnInit(): void {
@@ -28,7 +29,17 @@ private getall(){
 
   }
 
+updateWorker(id:Number){
+this.route.navigate(["FormularioU",id]);
+}
+deleteWorker(id:Number){
+  this.plantS.deleteWorker(id).subscribe(data=>{
+    this.getall();
+    console.log(data);
 
+  });
+
+}
 
 
 }

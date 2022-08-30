@@ -18,6 +18,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { FormularioIComponent } from './formulario-i/formulario-i.component';
+import { FormularioUComponent } from './formulario-u/formulario-u.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FormularioIComponent } from './formulario-i/formulario-i.component';
     PlantillaComponent,
     ContratosComponent,
     FormularioIComponent,
+    FormularioUComponent,
 
   ],
   imports: [
