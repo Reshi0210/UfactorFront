@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Worker } from '../models/worker';
 import { PlantillaServiceService } from '../Services/plantilla-service.service';
+import { Department } from '../models/department';
+import { PoliticIntegration } from '../models/politic-integration';
+import { Position } from '../models/position';
+import { Scholarship } from '../models/scholarship';
+import { CreateWorkerService } from '../Services/create-worker.service';
+import { FilterService } from '../Services/filter.service';
+
 
 @Component({
   selector: 'app-plantilla',
@@ -10,8 +17,22 @@ import { PlantillaServiceService } from '../Services/plantilla-service.service';
 })
 export class PlantillaComponent implements OnInit {
 
+  workerExample:Worker=new Worker ();
 
-  constructor(private plantS:PlantillaServiceService,private route:Router) { }
+
+  listaSexo:String[]=["M","F"];
+  listaDefensa:String[]=["ORAE","Imprescindible","BDP","Reserva","NoIncorporado","Ninguno"];
+  listaRaza:String[]=["Blanco","Negro","Mestizo"];
+  listaContrato:String[]=["Determinado","Indeterminado","Ciclico","Fijo","Prueba"];
+  ListaDepartamentos!:Department[];
+  ListaPositions!:Position[];
+  ListaPolitic!:PoliticIntegration[];
+  ListaScholar!:Scholarship[];
+
+  activeFilter:boolean=true;
+
+
+  constructor(private plantS:PlantillaServiceService,private route:Router,private createWorkerService:CreateWorkerService,private filters:FilterService) { }
 
 
   ngOnInit(): void {
@@ -20,12 +41,32 @@ export class PlantillaComponent implements OnInit {
 
 public workers!: Worker[];
 
+filtrar(){
+  this.filters.filterByExample(this.workerExample).subscribe(data=>{this.workers=data})
 
+}
+vaciar(){
+  let currentUrl = this.route.url;
+      this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.route.onSameUrlNavigation = 'reload';
+      this.route.navigate([currentUrl]);
+      this.activeFilter=true;
+
+
+
+
+}
+
+showFilters1(){
+  if(!this.activeFilter)
+  this.activeFilter=true;
+  else{this.activeFilter=false;}
+}
 
 private getall(){
 
   this.plantS.getWorkersList().subscribe(data=> {this.workers=data});
-
+  this.createWorkerService.getAllDepartment().subscribe(data=>{this.ListaDepartamentos=data})
 
   }
 
@@ -38,6 +79,8 @@ deleteWorker(id:Number){
     console.log(data);
 
   });
+
+
 
 }
 
