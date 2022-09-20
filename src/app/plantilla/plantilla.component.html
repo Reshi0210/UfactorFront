@@ -4,7 +4,9 @@
     <button mat-button routerLink="/formularioI">
       <mat-icon>add</mat-icon>
     </button>
-    <button mat-button (click)="showFilters1()"><mat-icon>filter_alt</mat-icon></button>
+    <button mat-button (click)="showFilters1()">
+      <mat-icon>filter_alt</mat-icon>
+    </button>
     <button mat-button><mat-icon>delete</mat-icon></button>
     <router-outlet></router-outlet>
   </mat-toolbar-row>
@@ -20,42 +22,56 @@
       <div class="col">
         <div class="form-control">
           <label>Nombre:</label>
-
-          <input
-            type="text"
-            class="form-control"
-            name="name"
-            [(ngModel)]="workerExample.firstName"
-          />
-          <br>
-
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="workerExample.firstName"
+            />
+            <button class="btn btn-warning" (click)="vaciarName()">
+              Vaciar
+            </button>
+          </div>
+          <br />
         </div>
       </div>
       <div class="col">
         <div class="form-control">
           <label for="race">Raza:</label>
-          <select
-            class="form-select"
-            name="race"
-            [(ngModel)]="workerExample.race"
-          > <option [value]="item" *ngFor="let item of listaRaza">
-              {{ item }}
-            </option>
-          </select>
+          <div class="input-group mb-3">
+            <select
+              class="form-select"
+              name="race"
+              [(ngModel)]="workerExample.race"
+            >
+              <option [value]="item" *ngFor="let item of listaRaza">
+                {{ item }}
+              </option>
+            </select>
+            <button class="btn btn-warning" (click)="vaciarRace()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
       <div class="col">
         <div class="form-control">
           <label for="sex">Sexo:</label>
-          <select
-            class="form-select"
-            name="sex"
-            [(ngModel)]="workerExample.sex"
-          >
-            <option [value]="item" *ngFor="let item of listaSexo">
-              {{ item }}
-            </option>
-          </select>
+          <div class="input-group mb-3">
+            <select
+              class="form-select"
+              name="sex"
+              [(ngModel)]="workerExample.sex"
+            >
+              <option [value]="item" *ngFor="let item of listaSexo">
+                {{ item }}
+              </option>
+            </select>
+            <button class="btn btn-warning" (click)="vaciarSex()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -65,40 +81,56 @@
       <div class="col">
         <div class="form-control">
           <label>Primer Apellido:</label>
-          <input
-            type="text"
-            class="form-control"
-            name="sname"
-            [(ngModel)]="workerExample.secondName"
-          />
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="sname"
+              [(ngModel)]="workerExample.secondName"
+            />
+            <button class="btn btn-warning" (click)="vaciarSName()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
       <div class="col">
         <div class="form-control">
           <label for="race">Tipo de Contrato:</label>
-          <select
-            class="form-select"
-            name="race"
-            [(ngModel)]="workerExample.contractType"
-          >
-            <option [value]="item" *ngFor="let item of listaContrato">
-              {{ item }}
-            </option>
-          </select>
+          <div class="input-group mb-3">
+            <select
+              class="form-select"
+              name="contract"
+              [(ngModel)]="workerExample.contractType"
+            >
+              <option [value]="item" *ngFor="let item of listaContrato">
+                {{ item }}
+              </option>
+            </select>
+            <button class="btn btn-warning" (click)="vaciarCon()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
+
       <div class="col">
         <div class="form-control">
           <label for="defense">Lugar En la Defenza:</label>
-          <select
-            class="form-select"
-            name="defense"
-            [(ngModel)]="workerExample.defensePlace"
-          >
-            <option [value]="item" *ngFor="let item of listaDefensa">
-              {{ item }}
-            </option>
-          </select>
+          <div class="input-group mb-3">
+            <select
+              class="form-select"
+              name="defense"
+              [(ngModel)]="workerExample.defensePlace"
+            >
+              <option [value]="item" *ngFor="let item of listaDefensa">
+                {{ item }}
+              </option>
+            </select>
+            <button class="btn btn-warning" (click)="vaciarDef()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -108,47 +140,82 @@
       <div class="col">
         <div class="form-control">
           <label>Segundo Apellido:</label>
-          <input
-            type="text"
-            class="form-control"
-            name="lname"
-            [(ngModel)]="workerExample.lastName"
-          />
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              name="lname"
+              [(ngModel)]="workerExample.lastName"
+            />
+            <button class="btn btn-warning" (click)="vaciarlName()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
       <div class="col">
         <div class="form-control">
           <label for="expN">Numero de Exp:</label>
-          <input
-            class="form-select"
-            name="expN"
-            [(ngModel)]="workerExample.expedientNumber"
-            type="text"
-          />
+          <div class="input-group mb-3">
+            <input
+              class="form-select"
+              name="expN"
+              [(ngModel)]="workerExample.expedientNumber"
+              type="text"
+            /><button class="btn btn-warning" (click)="vaciarExp()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
       <div class="col">
         <div class="form-control">
           <label for="depa">Departamento</label>
-          <select
-            class="form-select"
-            name="depa"
-            [(ngModel)]="workerExample.department"
-          >
-            <option [ngValue]="item" *ngFor="let item of ListaDepartamentos">
-              {{ item.departamentName }}
-            </option>
-          </select>
+          <div class="input-group mb-3">
+            <select
+              class="form-select"
+              name="depa"
+              [(ngModel)]="workerExample.department"
+            >
+              <option [ngValue]="item" *ngFor="let item of ListaDepartamentos">
+                {{ item.departamentName }}
+              </option>
+            </select>
+            <button class="btn btn btn-warning" (click)="vaciarDepa()">
+              vaciar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <!----------------------------------------------------------------------------4tafila--------------------------------------------------------------------------------------------->
+    <br />
+    <div class="row">
+      <div class="col">
+        <div class="form-control">
+          <label for="depa">Nivel Escolar</label>
+          <div class="input-group mb-3">
+            <select class="form-select" name="level" [(ngModel)]="scholarLevel">
+              <option [value]="item" *ngFor="let item of ListaScholarLevel">
+                {{ item }}
+              </option>
+            </select>
+            <button class="btn btn-warning" (click)="vaciarSch()">
+              Vaciar
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <br />
     <div class="btn-group">
-    <button type="submit" class="btn btn-success" (click)="filtrar()">
-      Filtrar
-    </button>
-    <button (click)="vaciar()" class="btn btn-danger">vaciar</button>
-  </div>
+      <button type="submit" class="btn btn-success" (click)="filtrar()">
+        Filtrar
+      </button>
+      <button (click)="vaciar()" class="btn btn-danger">vaciar</button>
+    </div>
     <!--------------------------------------------------------------------------Fin---Campos--Filtro-------------------------------------------------------------------------------->
   </form>
 </div>
@@ -200,9 +267,9 @@
             {{ scholar.scholarLevel }}
           </p>
         </td>
-        <td scope="col">{{ worker.position.positionName }}</td>
-        <td scope="col">{{ worker.position.scaleGroup.scale }}</td>
-        <td scope="col">{{ worker.department.departamentName }}</td>
+        <td scope="col">{{ worker.position?.positionName }}</td>
+        <td scope="col">{{ worker.position?.scaleGroup?.scale }}</td>
+        <td scope="col">{{ worker.department?.departamentName }}</td>
         <td scope="col">
           <button class="btn btn-info" (click)="updateWorker(worker.id)">
             Update

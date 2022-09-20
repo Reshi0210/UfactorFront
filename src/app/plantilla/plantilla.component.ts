@@ -17,7 +17,10 @@ import { FilterService } from '../Services/filter.service';
 })
 export class PlantillaComponent implements OnInit {
 
+
   workerExample:Worker=new Worker ();
+  scholarLevel!:string;
+
 
 
   listaSexo:String[]=["M","F"];
@@ -28,6 +31,7 @@ export class PlantillaComponent implements OnInit {
   ListaPositions!:Position[];
   ListaPolitic!:PoliticIntegration[];
   ListaScholar!:Scholarship[];
+  ListaScholarLevel:String[]=["TecMedio","Univ","PreUniv","Noveno","Doc","Master"];
 
   activeFilter:boolean=true;
 
@@ -37,12 +41,59 @@ export class PlantillaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getall();
+
   }
+vaciarDepa(){
+  delete this.workerExample.department
+}
+vaciarName(){
+  delete this.workerExample.firstName
+}
+
+vaciarSName(){
+  delete this.workerExample.secondName
+}
+
+vaciarlName(){
+  delete this.workerExample.lastName
+}
+vaciarSex(){
+  delete this.workerExample.sex
+}
+vaciarDef(){
+  delete this.workerExample.defensePlace
+}
+vaciarExp(){
+  delete this.workerExample.expedientNumber
+}
+
+vaciarCon(){
+  delete this.workerExample.contractType
+}
+vaciarRace(){
+  delete this.workerExample.race
+}
+
+vaciarSch(){
+  this.scholarLevel="";
+
+}
+
+
+
 
 public workers!: Worker[];
 
 filtrar(){
-  this.filters.filterByExample(this.workerExample).subscribe(data=>{this.workers=data})
+
+
+
+
+console.log(this.workerExample)
+console.log(this.scholarLevel)
+
+
+  this.filters.filterByExample(this.workerExample,this.scholarLevel).subscribe(data=>{this.workers=data})
 
 }
 vaciar(){
