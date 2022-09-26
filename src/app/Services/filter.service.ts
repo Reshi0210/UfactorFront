@@ -13,7 +13,7 @@ export class FilterService {
 
 filterbyExampleUrl:String="http://localhost:8092/api/v1/filterByExample"
 filterbyEUrl:String="http://localhost:8092/api/v1/filterE"
-
+filterbyCriteriaUrl="http://localhost:8092/api/v1/filterByCriteria"
 
 /*filterByExample(workerExample:Worker):Observable<Worker[]>{
 
@@ -28,6 +28,13 @@ filterByExample(workerExample:Worker,level:string):Observable<Worker[]>{
  return this.httpc.post<Worker[]>(`${this.filterbyEUrl}`,workerExample,{headers});
   }
 
+  filterByCriteria(criteria:string):Observable<Worker[]>{
+    const headers=new HttpHeaders({
+      "criteria":criteria,
+  })
+
+    return this.httpc.post<Worker[]>(`${this.filterbyCriteriaUrl}`,null,{headers})
+  }
 
 
 }

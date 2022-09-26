@@ -8,6 +8,7 @@ import { Position } from '../models/position';
 import { Scholarship } from '../models/scholarship';
 import { CreateWorkerService } from '../Services/create-worker.service';
 import { FilterService } from '../Services/filter.service';
+import { delay } from 'rxjs';
 
 
 @Component({
@@ -20,8 +21,8 @@ export class PlantillaComponent implements OnInit {
 
   workerExample:Worker=new Worker ();
   scholarLevel!:string;
-
-
+  criteria:string="";
+  public workers!: Worker[];
 
   listaSexo:String[]=["M","F"];
   listaDefensa:String[]=["ORAE","Imprescindible","BDP","Reserva","NoIncorporado","Ninguno"];
@@ -81,27 +82,39 @@ vaciarSch(){
 
 
 
+filterByCriteria(){
 
-public workers!: Worker[];
+  this.filters.filterByCriteria(this.criteria).subscribe(data=>{this.workers=data
+  console.log(data)
+  })
+}
+
 
 filtrar(){
-
-
-
-
 console.log(this.workerExample)
 console.log(this.scholarLevel)
-
-
-  this.filters.filterByExample(this.workerExample,this.scholarLevel).subscribe(data=>{this.workers=data})
-
+this.filters.filterByExample(this.workerExample,this.scholarLevel).subscribe(data=>{this.workers=data})
 }
+
+
 vaciar(){
-  let currentUrl = this.route.url;
+ /* let currentUrl = this.route.url;
       this.route.routeReuseStrategy.shouldReuseRoute = () => false;
       this.route.onSameUrlNavigation = 'reload';
       this.route.navigate([currentUrl]);
-      this.activeFilter=true;
+      this.activeFilter=true;*/
+
+
+        delete this.workerExample.department
+        delete this.workerExample.firstName
+        delete this.workerExample.secondName
+        delete this.workerExample.lastName
+        delete this.workerExample.sex
+        delete this.workerExample.defensePlace
+        delete this.workerExample.expedientNumber
+        delete this.workerExample.contractType
+        delete this.workerExample.race
+        this.scholarLevel="";
 
 
 

@@ -1,14 +1,23 @@
 <div class="container"></div>
 <mat-toolbar color="">
   <mat-toolbar-row>
+    <router-outlet></router-outlet>
     <button mat-button routerLink="/formularioI">
       <mat-icon>add</mat-icon>
     </button>
     <button mat-button (click)="showFilters1()">
       <mat-icon>filter_alt</mat-icon>
     </button>
-    <button mat-button><mat-icon>delete</mat-icon></button>
-    <router-outlet></router-outlet>
+    <button mat-button><mat-icon>search</mat-icon></button>
+    <input
+      name="criteria"
+      (keyup)="filterByCriteria()"
+      class="form-control"
+      type="text"
+      [(ngModel)]="criteria"
+      placeholder="Buscar Por CI o Nombre"
+    />
+
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -223,6 +232,14 @@
 <br />
 
 <!---------------------------------------------------------------------------Tabla-Datos--------------------------------------------------------------------------------------->
+<div class="position-relative">
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <h1>Plantilla de Trabajadores</h1>
+  </div>
+</div>
+<br />
+<br />
+<br />
 <div class="container-fluid">
   <table class="table table-striped">
     <thead>

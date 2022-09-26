@@ -55,13 +55,15 @@
   </div>
   <div>
   <label >Departamento</label>
-  <select class="form-select" name="selectdep" [(ngModel)]="worker.department">
+  <select class="form-select" name="selectdep" [(ngModel)]="worker.department"  (click)="getDepa()">
+    <option [ngValue]="worker.department">{{worker.department?.departamentName}}</option>
     <option [ngValue]="item" *ngFor="let item of ListaDepartamentos">{{item.departamentName}}</option>
     </select>
   </div>
   <div>
     <label >Cargo</label>
-    <select class="form-select" name="selectdcar" [(ngModel)]="worker.position"  >
+    <select class="form-select" name="selectdcar" [(ngModel)]="worker.position" (click)="getPositions()" >
+      <option [ngValue]="worker.position">{{worker.position?.positionName}}</option>
       <option [ngValue]="item" *ngFor="let item of ListaPositions">{{item.positionName}}</option>
       </select>
     </div>
@@ -79,7 +81,7 @@
         </div>
   <br>
   <div >
-  <button class="btn btn-success" type="submit">Agregar</button>
+  <button class="btn btn-success" type="submit">Actualizar</button>
   </div>
 
 
