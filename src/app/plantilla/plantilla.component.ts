@@ -23,6 +23,7 @@ export class PlantillaComponent implements OnInit {
   scholarLevel!:string;
   criteria:string="";
   public workers!: Worker[];
+  activeFilter:boolean=false;
 
   listaSexo:String[]=["M","F"];
   listaDefensa:String[]=["ORAE","Imprescindible","BDP","Reserva","NoIncorporado","Ninguno"];
@@ -34,7 +35,7 @@ export class PlantillaComponent implements OnInit {
   ListaScholar!:Scholarship[];
   ListaScholarLevel:String[]=["TecMedio","Univ","PreUniv","Noveno","Doc","Master"];
 
-  activeFilter:boolean=true;
+
 
 
   constructor(private plantS:PlantillaServiceService,private route:Router,private createWorkerService:CreateWorkerService,private filters:FilterService) { }
@@ -42,7 +43,7 @@ export class PlantillaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getall();
-
+    this.vaciar();
   }
 vaciarDepa(){
   delete this.workerExample.department
@@ -135,7 +136,7 @@ private getall(){
   }
 
 updateWorker(id:Number){
-this.route.navigate(["FormularioU",id]);
+this.route.navigate(["dashboard/FormularioU",id]);
 }
 deleteWorker(id:Number){
   this.plantS.deleteWorker(id).subscribe(data=>{

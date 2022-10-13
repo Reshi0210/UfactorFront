@@ -113,6 +113,6 @@ export class FormularioUComponent implements OnInit {
   }
 
   goToPlantilla() {
-    this.route.navigate(['/plantilla']);
+    this.route.navigate(['dashboard/plantilla']);
   }
 }

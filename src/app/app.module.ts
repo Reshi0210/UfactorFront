@@ -19,6 +19,9 @@ import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { FormularioIComponent } from './formulario-i/formulario-i.component';
 import { FormularioUComponent } from './formulario-u/formulario-u.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CalificadoresComponent } from './calificadores/calificadores.component';
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import { FormularioUComponent } from './formulario-u/formulario-u.component';
     ContratosComponent,
     FormularioIComponent,
     FormularioUComponent,
+    LoginComponent,
+    DashboardComponent,
+    CalificadoresComponent,
 
   ],
   imports: [
