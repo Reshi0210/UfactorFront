@@ -22,6 +22,13 @@ import { FormularioUComponent } from './formulario-u/formulario-u.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalificadoresComponent } from './calificadores/calificadores.component';
+import { DepartamentoComponent } from './departamento/departamento.component';
+import { PoliticaComponent } from './politica/politica.component';
+import { CargoComponent } from './cargo/cargo.component';
+import { GrupoEscalaComponent } from './grupo-escala/grupo-escala.component';
+import { EscolaridadComponent } from './escolaridad/escolaridad.component';
+import { CrearDepaComponent } from './crear-depa/crear-depa.component';
+import { UpdateDepaComponent } from './update-depa/update-depa.component';
 
 
 @NgModule({
@@ -34,6 +41,13 @@ import { CalificadoresComponent } from './calificadores/calificadores.component'
     LoginComponent,
     DashboardComponent,
     CalificadoresComponent,
+    DepartamentoComponent,
+    PoliticaComponent,
+    CargoComponent,
+    GrupoEscalaComponent,
+    EscolaridadComponent,
+    CrearDepaComponent,
+    UpdateDepaComponent,
 
   ],
   imports: [

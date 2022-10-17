@@ -1,0 +1,23 @@
+
+<div clas="container-fluid">
+  <div class="position-static">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h1>Crear un Departamento</h1>
+      <br />
+      <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <div class="form-group">
+          <input name="depaName"
+            class="form-control"
+            type="text"
+            [(ngModel)]="depa.departamentName"
+            placeholder="Nombre del departamento"
+
+
+          />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success">Crear</button>
+      </form>
+    </div>
+  </div>
+</div>
