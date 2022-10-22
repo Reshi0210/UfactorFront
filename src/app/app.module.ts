@@ -29,6 +29,16 @@ import { GrupoEscalaComponent } from './grupo-escala/grupo-escala.component';
 import { EscolaridadComponent } from './escolaridad/escolaridad.component';
 import { CrearDepaComponent } from './crear-depa/crear-depa.component';
 import { UpdateDepaComponent } from './update-depa/update-depa.component';
+import { CrearIntegracionesPoliticasComponent } from './crear-integraciones-politicas/crear-integraciones-politicas.component';
+import { UpdateIntegracionesPoliticasComponent } from './update-integraciones-politicas/update-integraciones-politicas.component';
+import { CrearEscalaComponent } from './crear-escala/crear-escala.component';
+import { UpdateEscalaComponent } from './update-escala/update-escala.component';
+import { CrearCargoComponent } from './crear-cargo/crear-cargo.component';
+import { UpdateCargoComponent } from './update-cargo/update-cargo.component';
+import { CrearEscolaridadComponent } from './crear-escolaridad/crear-escolaridad.component';
+import { UpdateEscolaridadComponent } from './update-escolaridad/update-escolaridad.component';
+
+
 
 
 @NgModule({
@@ -48,6 +58,16 @@ import { UpdateDepaComponent } from './update-depa/update-depa.component';
     EscolaridadComponent,
     CrearDepaComponent,
     UpdateDepaComponent,
+    CrearIntegracionesPoliticasComponent,
+    UpdateIntegracionesPoliticasComponent,
+    CrearEscalaComponent,
+    UpdateEscalaComponent,
+    CrearCargoComponent,
+    UpdateCargoComponent,
+    CrearEscolaridadComponent,
+    UpdateEscolaridadComponent,
+
+
 
   ],
   imports: [

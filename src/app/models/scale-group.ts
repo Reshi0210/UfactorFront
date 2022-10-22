@@ -1,5 +1,5 @@
 export class ScaleGroup {
-  id!:Number;
+  id!:number;
   scale!:String;
-  salary!:Number
+  salary!:number
 }

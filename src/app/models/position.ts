@@ -1,7 +1,7 @@
 import { ScaleGroup } from "./scale-group";
 
 export class Position {
-  id!:Number;
+  id!:number;
   positionName!:String;
   category!:String;
   scaleGroup!:ScaleGroup;

@@ -1,0 +1,23 @@
+<div clas="container-fluid">
+  <div class="position-static">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h1>Editar una Integracion Politica</h1>
+      <br />
+      <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <div class="form-group">
+          <input name="Name"
+            class="form-control"
+            type="text"
+            [(ngModel)]="politic.organ"
+            placeholder="Nombre del organo"
+
+
+          />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success">actualziar</button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,40 @@
+<div clas="container-fluid">
+  <div class="position-static">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h1>Actualizar una Escolaridad</h1>
+      <br />
+      <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <div class="form-group">
+          <input name="Name"
+            class="form-control"
+            type="text"
+            [(ngModel)]="scholar.scholarName"
+            placeholder="Titulo de  la Escolaridad"
+
+
+          /><br>
+          <div class="col">
+            <div class="form-control">
+              <label for="defense">Nivel Escolar</label>
+              <div class="input-group mb-3">
+                <select
+                  class="form-select"
+                  name="cat"
+                  [(ngModel)]="scholar.scholarLevel"
+                >
+                  <option [value]="item" *ngFor="let item of scholarLevelList">
+                    {{ item }}
+                  </option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Actualizar</button>
+      </form>
+    </div>
+  </div>
+</div>
+

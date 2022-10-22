@@ -1,0 +1,35 @@
+<div clas="container-fluid">
+  <div class="position-static">
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <h1>Actualizar un Grupo Escala</h1>
+      <br />
+      <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+        <div class="form-group">
+          <input name="Name1"
+            class="form-control"
+            type="text"
+            [(ngModel)]="scale.scale"
+            placeholder="Nombre del Grupo"
+
+
+          />
+        </div>
+        <br>
+        <div class="form-group">
+          <input name="Name2"
+            class="form-control"
+            type="text"
+            [(ngModel)]="scale.salary"
+            placeholder="Salario"
+
+
+          />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success">Actualizar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+

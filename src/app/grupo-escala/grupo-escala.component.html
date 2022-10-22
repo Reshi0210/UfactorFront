@@ -1,1 +1,56 @@
-<p>grupo-escala works!</p>
+<div class="container"></div>
+<mat-toolbar color="">
+  <mat-toolbar-row>
+    <router-outlet></router-outlet>
+    <button mat-button routerLink="crear-escala">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-button><mat-icon>search</mat-icon></button>
+
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<br>
+<br>
+<br>
+<div class="position-relative">
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <h1>Integraciones Politicas</h1>
+  </div>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+  <table class="table table-striped">
+<thead>
+  <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col">Salario</th>
+    <th scope="col">Actualizar</th>
+    <th scope="col">Eliminar</th>
+  </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let scale of scalesList">
+      <td>{{scale.scale}}</td>
+      <td>{{scale.salary}}</td>
+      <td scope="col">
+        <button class="btn btn-info" (click)="update(scale.id)">
+          Update
+        </button>
+      </td>
+      <td scope="col">
+        <button class="btn btn-danger" (click)="delete(scale.id)">
+          Delete
+        </button>
+      </td>
+
+
+    </tr>
+
+</tbody>
+
+  </table>
+
+</div>

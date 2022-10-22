@@ -1,5 +1,5 @@
 export class Scholarship {
-  id!:Number;
+  id!:number;
   scholarName!:String;
   scholarLevel!:String;
 }

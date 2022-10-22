@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Position } from '../models/position';
+import { CargoService } from '../Services/cargo.service';
 
 @Component({
   selector: 'app-cargo',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CargoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private positionS:CargoService,private route:Router) { }
 
   ngOnInit(): void {
+    this.getAll();
+
+  }
+
+  positionsList!:Position[];
+
+
+  getAll(){
+    this.positionS.getAll().subscribe(data=>{this.positionsList=data})
+
+
+  }
+
+  update(id:number){
+    this.route.navigate(["dashboard/calificadores/cargo/update-cargo",id]);
+  }
+  delete(id:number){
+    this.positionS.delete(id).subscribe(data=>{console.log(data)
+      this.getAll();
+    })
   }
 
 }
