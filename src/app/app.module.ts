@@ -37,6 +37,9 @@ import { CrearCargoComponent } from './crear-cargo/crear-cargo.component';
 import { UpdateCargoComponent } from './update-cargo/update-cargo.component';
 import { CrearEscolaridadComponent } from './crear-escolaridad/crear-escolaridad.component';
 import { UpdateEscolaridadComponent } from './update-escolaridad/update-escolaridad.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCommonModule} from '@angular/material/core';
 
 
 
@@ -69,6 +72,7 @@ import { UpdateEscolaridadComponent } from './update-escolaridad/update-escolari
 
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -83,7 +87,10 @@ import { UpdateEscolaridadComponent } from './update-escolaridad/update-escolari
     MatTreeModule,
     MatListModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

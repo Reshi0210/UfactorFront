@@ -5,78 +5,151 @@
 
 
 <form  (ngSubmit)="onSubmit()" #myform="ngForm">
-  <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" class="form-control" name="name" [(ngModel)]="worker.firstName" >
- </div>
 
- <div class="form-group">
-  <label>Primer Apellido</label>
-  <input type="text" class="form-control" name="apellido1" [(ngModel)]="worker.secondName" >
-</div>
+   <div class="col">
 
-<div class="form-group">
-  <label>Segundo Apellido</label>
-  <input type="text" class="form-control" name="apellido2" [(ngModel)]="worker.lastName" >
-</div>
-
-<div class="form-group">
-  <label>CI</label>
-  <input type="text" class="form-control" name="ci" [(ngModel)]="worker.ci" >
-</div>
-
-<div class="form-group">
-  <label>Numero de Expediente</label>
-  <input type="text" class="form-control" name="expedienten" [(ngModel)]="worker.expedientNumber" >
-</div>
-
-<div >
-  <label >Sexo</label>
-<select class="form-select" name="selects" [(ngModel)]="worker.sex">
-  <option [value]="item" *ngFor="let item of listaSexo">{{item}}</option>
-  </select>
-</div>
-<div >
-  <label >lugar en la defensa</label>
-<select class="form-select" name="selectd" [(ngModel)]="worker.defensePlace">
-  <option [value]="item" *ngFor="let item of listaDefensa">{{item}}</option>
-  </select>
-</div>
-<div >
-  <label >raza</label>
-<select class="form-select" name="selectr" [(ngModel)]="worker.race">
-  <option [value]="item" *ngFor="let item of listaRaza">{{item}}</option>
-  </select>
-</div>
-<div >
-  <label >Tipo de contrato</label>
-<select class="form-select" name="selectco" [(ngModel)]="worker.contractType">
-  <option [value]="item" *ngFor="let item of listaContrato">{{item}}</option>
-  </select>
-</div>
-<div>
-<label >Departamento</label>
-<select class="form-select" name="selectdep" [(ngModel)]="worker.department">
-  <option [ngValue]="item" *ngFor="let item of ListaDepartamentos">{{item.departamentName}}</option>
-  </select>
-</div>
-<div>
-  <label >Cargo</label>
-  <select class="form-select" name="selectdcar" [(ngModel)]="worker.position">
-    <option [ngValue]="item" *ngFor="let item of ListaPositions">{{item.positionName}}</option>
-    </select>
-  </div>
-  <div>
-    <label >integraciones politicas</label>
-    <select class="form-select" name="selectpol" [(ngModel)]="worker.politiclist" multiple="multiple"> >
-      <option [ngValue]="item" *ngFor="let item of ListaPolitic">{{item.organ}}</option>
-      </select>
+  <div class="row">
+    <mat-label>Nombre:</mat-label>
+    <mat-form-field appearance="fill" >
+    <input matInput  type="text"   name="name" [(ngModel)]="worker.firstName" required #valid1="ngModel">
+    <mat-error *ngIf="valid1.invalid">El campo es requerido</mat-error>
+  </mat-form-field>
     </div>
-    <div>
-      <label >Escolaridades</label>
-      <select class="form-select" name="selectes" [(ngModel)]="worker.scholarShiplist" multiple="multiple"> >
-        <option [ngValue]="item" *ngFor="let item of ListaScholar">{{item.scholarName}}</option>
-        </select>
+    <br>
+
+ <div class="row">
+  <label>P.Apellido:</label>
+  <mat-form-field appearance="fill" >
+  <input matInput type="text"  name="apellido1" [(ngModel)]="worker.secondName" required #valid2="ngModel">
+  <mat-error *ngIf="valid2.invalid">El campo es requerido</mat-error>
+  </mat-form-field >
+</div>
+
+<div class="row">
+  <label>S.Apellido:</label>
+  <mat-form-field appearance="fill" >
+  <input matInput type="text" required  name="apellido2" [(ngModel)]="worker.lastName" #valid3="ngModel" >
+  <mat-error *ngIf="valid3.invalid">El campo es requerido</mat-error>
+ </mat-form-field>
+ </div>
+  <br>
+
+
+
+<div class="row">
+
+  <label>C.Identidad:</label>
+  <mat-form-field appearance="fill" >
+  <input matInput type="number" required  min="10000000000" max="99999999999"  name="ci" [(ngModel)]="worker.ci "#valid4="ngModel">
+  <mat-error *ngIf="valid4.invalid && valid4.hasError('min')">no menos de 11 digitos</mat-error>
+  <mat-error *ngIf="valid4.invalid && valid4.hasError('max')">no mas de 11 digitoss</mat-error>
+  <mat-error *ngIf="valid4.invalid && valid4.hasError('required')">Campo requerido</mat-error>
+  </mat-form-field>
+  </div>
+  <br>
+
+<div class="row" >
+  <label>N.Expediente:</label>
+  <mat-form-field appearance="fill" >
+  <input matInput type="number" required=""  name="expedienten" [(ngModel)]="worker.expedientNumber" #valid5="ngModel">
+  <mat-error *ngIf="valid5.invalid && valid5.hasError('required')">Campo requerido</mat-error>
+ </mat-form-field>
+</div>
+<br>
+
+<div  class="row">
+  <label >Sexo:</label>
+  <mat-form-field appearance="fill" >
+  <mat-select   required  name="selects" [(ngModel)]="worker.sex"  #valid6="ngModel">
+  <mat-option selected></mat-option>
+  <mat-option  [value]="item" *ngFor="let item of listaSexo">{{item}}</mat-option>
+  </mat-select>
+  <mat-error *ngIf="valid5.invalid && valid6.hasError('required')">Campo requerido</mat-error>
+  </mat-form-field>
+</div>
+<br>
+
+<div class="row">
+<label >L.Defensa:</label>
+<mat-form-field appearance="fill" >
+<mat-select required  name="selectd" [(ngModel)]="worker.defensePlace">
+<mat-option selected></mat-option>
+<mat-option [value]="item" *ngFor="let item of listaDefensa">{{item}}</mat-option>
+</mat-select>
+<mat-error>El campo es requerido</mat-error>
+</mat-form-field>
+</div>
+<br>
+
+<div class="row" >
+  <label >Raza:</label>
+  <mat-form-field appearance="fill" >
+  <mat-select required name="selectr" [(ngModel)]="worker.race">
+  <mat-option selected ></mat-option>
+  <mat-option [value]="item" *ngFor="let item of listaRaza">{{item}}</mat-option>
+  </mat-select>
+  <mat-error>El campo es requerido</mat-error>
+ </mat-form-field>
+</div>
+<br>
+
+<div  class="row">
+  <label >T.contrato:</label>
+  <mat-form-field appearance="fill" >
+  <mat-select required name="selectco" [(ngModel)]="worker.contractType">
+    <mat-option selected ></mat-option>
+    <mat-option [value]="item" *ngFor="let item of listaContrato">{{item}}</mat-option>
+    </mat-select>
+    <mat-error>El campo es requerido</mat-error>
+    </mat-form-field>
+</div>
+<br>
+
+<div class="row">
+<label >Departamento:</label>
+  <mat-form-field appearance="fill" >
+  <mat-select required  name="selectdep" [(ngModel)]="worker.department">
+  <mat-option selected ></mat-option>
+  <mat-option [value]="item" *ngFor="let item of ListaDepartamentos">{{item.departamentName}}</mat-option>
+  </mat-select>
+  <mat-error>El campo es requerido</mat-error>
+  </mat-form-field>
+</div>
+<br>
+
+  <div class="row">
+  <label >Cargo:</label>
+  <mat-form-field appearance="fill" >
+  <mat-select required  name="selectdcar" [(ngModel)]="worker.position">
+  <mat-option selected ></mat-option>
+  <mat-option [value]="item" *ngFor="let item of ListaPositions">{{item.positionName}}</mat-option>
+  </mat-select>
+  <mat-error>El campo es requerido</mat-error>
+  </mat-form-field>
+  </div>
+  <br>
+
+     <div class="row">
+      <label >I.Politica:</label>
+      <mat-form-field appearance="fill" >
+      <mat-select required  name="selectpol" [(ngModel)]="worker.politiclist" multiple="multiple">
+      <mat-option [value]="item" *ngFor="let item of ListaPolitic">{{item.organ}}</mat-option>
+      </mat-select>
+      <mat-error>El campo es requerido</mat-error>
+      </mat-form-field>
+     </div>
+     <br>
+
+        <div class="row">
+        <label >Escolaridades:</label>
+        <mat-form-field appearance="fill" >
+        <mat-select required name="selectes" [(ngModel)]="worker.scholarShiplist" multiple="multiple">
+        <mat-option [value]="item" *ngFor="let item of ListaScholar">{{item.scholarName}}</mat-option>
+        </mat-select>
+        <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
+        </div>
+
       </div>
 <br>
 <div >

@@ -4,32 +4,26 @@
       <h1>Actualizar un Grupo Escala</h1>
       <br />
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <div class="form-group">
-          <input name="Name1"
-            class="form-control"
-            type="text"
-            [(ngModel)]="scale.scale"
-            placeholder="Nombre del Grupo"
+         <div class="col">
+        <div class="row">
+          <mat-form-field appearance="fill">
+          <input matInput required name="depaName"  type="text" [(ngModel)]="scale.scale" placeholder="Nombre del Grupo" />
+          <mat-error>El campo es requerido</mat-error>
+          </mat-form-field>
+          </div>
 
-
-          />
-        </div>
-        <br>
-        <div class="form-group">
-          <input name="Name2"
-            class="form-control"
-            type="text"
-            [(ngModel)]="scale.salary"
-            placeholder="Salario"
-
-
-          />
+          <br>
+        <div class="row">
+          <mat-form-field appearance="fill">
+          <input matInput required name="salary"  type="number" [(ngModel)]="scale.salary" placeholder="Salario" />
+          <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
         </div>
         <br />
-        <button type="submit" class="btn btn-success">Actualizar</button>
+        <button [disabled]="!myForm.valid" type="submit" class="btn btn-success">Actualizar</button>
+      </div>
       </form>
     </div>
   </div>
 </div>
-
 

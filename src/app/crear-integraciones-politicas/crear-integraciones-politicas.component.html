@@ -4,8 +4,12 @@
       <h1>Crear una Integracion Politica</h1>
       <br />
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <div class="form-group">
-          <input name="Name"
+        <div class="row">
+          <mat-form-field appearance="fill">
+          <input
+            matInput
+            required
+            name="Name"
             class="form-control"
             type="text"
             [(ngModel)]="politic.organ"
@@ -13,9 +17,11 @@
 
 
           />
+          <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
         </div>
         <br />
-        <button type="submit" class="btn btn-success">Crear</button>
+        <button [disabled]="!myForm.valid" type="submit" class="btn btn-success">Crear</button>
       </form>
     </div>
   </div>

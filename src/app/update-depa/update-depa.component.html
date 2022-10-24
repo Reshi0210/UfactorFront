@@ -1,23 +1,27 @@
+
 <div clas="container-fluid">
   <div class="position-static">
     <div class="position-absolute top-50 start-50 translate-middle">
-      <h1>Editar un Departamento</h1>
+      <h1>Actualziar un Departamento</h1>
       <br />
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <div class="form-group">
-          <input name="depaName"
-            class="form-control"
+        <div class="row">
+          <mat-form-field appearance="fill">
+          <input matInput name="depaName"
+            required
             type="text"
             [(ngModel)]="depa.departamentName"
             placeholder="Nombre del departamento"
 
 
           />
+          <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
+
         </div>
         <br />
-        <button type="submit" class="btn btn-success">actualziar</button>
+        <button [disabled]="!myForm.valid" type="submit" class="btn btn-success">Actualizar</button>
       </form>
     </div>
   </div>
 </div>
-

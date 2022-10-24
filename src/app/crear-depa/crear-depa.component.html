@@ -5,18 +5,22 @@
       <h1>Crear un Departamento</h1>
       <br />
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <div class="form-group">
-          <input name="depaName"
-            class="form-control"
+        <div class="row">
+          <mat-form-field appearance="fill">
+          <input matInput name="depaName"
+            required
             type="text"
             [(ngModel)]="depa.departamentName"
             placeholder="Nombre del departamento"
 
 
           />
+          <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
+
         </div>
         <br />
-        <button type="submit" class="btn btn-success">Crear</button>
+        <button [disabled]="!myForm.valid" type="submit" class="btn btn-success">Crear</button>
       </form>
     </div>
   </div>

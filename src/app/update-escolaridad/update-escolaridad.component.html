@@ -1,40 +1,41 @@
 <div clas="container-fluid">
   <div class="position-static">
     <div class="position-absolute top-50 start-50 translate-middle">
-      <h1>Actualizar una Escolaridad</h1>
+      <h1>Actualziar una Escolaridad</h1>
       <br />
+
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <div class="form-group">
-          <input name="Name"
-            class="form-control"
-            type="text"
-            [(ngModel)]="scholar.scholarName"
-            placeholder="Titulo de  la Escolaridad"
+
+        <div class="col">
+
+          <div class="row">
+          <mat-form-field appearance="fill">
+          <input matInput required  name="Name"  type="text" [(ngModel)]="scholar.scholarName"
+            placeholder="Titulo de  la Escolaridad" />
+            <mat-error>El campo es requerido</mat-error>
+            </mat-form-field>
+            </div>
+            <br>
 
 
-          /><br>
-          <div class="col">
-            <div class="form-control">
-              <label for="defense">Nivel Escolar</label>
-              <div class="input-group mb-3">
-                <select
-                  class="form-select"
-                  name="cat"
-                  [(ngModel)]="scholar.scholarLevel"
-                >
-                  <option [value]="item" *ngFor="let item of scholarLevelList">
+            <div class="row">
+              <label for="defense">Nivel Escolar:</label>
+              <mat-form-field appearance="fill">
+               <mat-select required  name="cat" [(ngModel)]="scholar.scholarLevel">
+                  <mat-option selected ></mat-option>
+                  <mat-option [value]="item" *ngFor="let item of scholarLevelList">
                     {{ item }}
-                  </option>
-                </select>
+                  </mat-option>
+                </mat-select>
+                <mat-error>Seleccione una opcion</mat-error>
+              </mat-form-field>
+                 </div>
 
               </div>
-            </div>
-          </div>
-        </div>
+
         <br>
-        <button type="submit" class="btn btn-success">Actualizar</button>
+        <button [disabled]="!myForm.valid" type="submit" class="btn btn-success">Actualziar</button>
       </form>
     </div>
   </div>
 </div>
-

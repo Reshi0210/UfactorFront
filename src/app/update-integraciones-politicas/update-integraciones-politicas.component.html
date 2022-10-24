@@ -1,11 +1,15 @@
 <div clas="container-fluid">
   <div class="position-static">
     <div class="position-absolute top-50 start-50 translate-middle">
-      <h1>Editar una Integracion Politica</h1>
+      <h1>Actualizar una Integracion Politica</h1>
       <br />
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <div class="form-group">
-          <input name="Name"
+        <div class="row">
+          <mat-form-field appearance="fill">
+          <input
+            matInput
+            required
+            name="Name"
             class="form-control"
             type="text"
             [(ngModel)]="politic.organ"
@@ -13,11 +17,12 @@
 
 
           />
+          <mat-error>El campo es requerido</mat-error>
+        </mat-form-field>
         </div>
         <br />
-        <button type="submit" class="btn btn-success">actualziar</button>
+        <button [disabled]="!myForm.valid" type="submit" class="btn btn-success">Actualizar</button>
       </form>
     </div>
   </div>
 </div>
-

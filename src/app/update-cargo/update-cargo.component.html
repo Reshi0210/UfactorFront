@@ -1,56 +1,57 @@
 <div clas="container-fluid">
   <div class="position-static">
     <div class="position-absolute top-50 start-50 translate-middle">
-      <h1>Actualizar un Grupo Escala</h1>
+      <h1>Actualizar un Cargo</h1>
       <br />
+
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <div class="form-group">
-          <input name="Name"
-            class="form-control"
-            type="text"
-            [(ngModel)]="position.positionName"
-            placeholder="Nombre del Cargo"
 
+        <div clas="col">
 
-          /><br>
-          <div class="col">
-            <div class="form-control">
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <input matInput required name="Name" type="text" [(ngModel)]="position.positionName"
+                placeholder="Nombre del Cargo" />
+              <mat-error >El campo es requerido</mat-error>
+            </mat-form-field>
+          </div>
+            <br />
+
+            <div class="row">
+
               <label for="defense">categoria</label>
-              <div class="input-group mb-3">
-                <select
-                  class="form-select"
-                  name="cat"
-                  [(ngModel)]="position.category"
-                >
-                  <option [value]="item" *ngFor="let item of listaCategoria">
+              <mat-form-field appearance="fill">
+              <mat-select required name="cat" [(ngModel)]="position.category">
+                  <mat-option selected></mat-option>
+                  <mat-option [value]="item" *ngFor="let item of listaCategoria">
                     {{ item }}
-                  </option>
-                </select>
-
-              </div>
+                  </mat-option>
+                </mat-select>
+                <mat-error>Seleccione Una opcion</mat-error>
+              </mat-form-field>
             </div>
-          </div>
-        </div>
-        <br>
-        <div class="col">
-          <div class="form-control">
-            <label for="defense">Escala</label>
-            <div class="input-group mb-3">
-              <select
-                class="form-select"
-                name="scal"
-                [(ngModel)]="position.scaleGroup"
-              >
-                <option [ngValue]="item" *ngFor="let item of scaleList">
+
+
+
+           <br />
+           <div class="row">
+           <label for="defense">Escala</label>
+            <mat-form-field appearance="fill">
+            <mat-select required name="escal" [(ngModel)]="position.scaleGroup">
+              <mat-option [value]="position.scaleGroup">{{position.scaleGroup.scale}}</mat-option>
+                <mat-option [value]="item" *ngFor="let item of scaleList">
                   {{ item.scale }}
-                </option>
-              </select>
-
-            </div>
+                </mat-option>
+              </mat-select>
+              <mat-error>Seleccione Una opcion</mat-error>
+            </mat-form-field>
           </div>
+
         </div>
-        <br>
-        <button type="submit" class="btn btn-success">Actualizar</button>
+
+
+        <br />
+        <button [disabled]="!myForm.valid"  type="submit" class="btn btn-success">Actualziar</button>
       </form>
     </div>
   </div>
