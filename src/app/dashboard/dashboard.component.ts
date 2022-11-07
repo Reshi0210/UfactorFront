@@ -16,4 +16,11 @@ export class DashboardComponent implements OnInit {
   title = 'Ufactor';
   opened=false;
 
+
+  logOut(){
+ localStorage.clear();
+ this.router.navigate(["login"]);}
+
+
+
 }

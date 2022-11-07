@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Worker } from '../models/worker';
@@ -14,7 +14,7 @@ export class PlantillaServiceService {
   constructor(private httpc:HttpClient) { }
 
   getWorkersList():Observable<Worker[]>{
-    return  this.httpc.get<Worker[]>(`${this.allurl}`);
+return  this.httpc.get<Worker[]>(`${this.allurl}`,);
   }
 
   deleteWorker(id:Number):Observable<object>{

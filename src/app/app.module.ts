@@ -16,7 +16,7 @@ import { PlantillaComponent } from './plantilla/plantilla.component';
 import { ContratosComponent } from './contratos/contratos.component';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormularioIComponent } from './formulario-i/formulario-i.component';
 import { FormularioUComponent } from './formulario-u/formulario-u.component';
 import { LoginComponent } from './login/login.component';
@@ -40,6 +40,8 @@ import { UpdateEscolaridadComponent } from './update-escolaridad/update-escolari
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCommonModule} from '@angular/material/core';
+import { AuthInterceptorInterceptor } from './Interceptors/auth-interceptor.interceptor';
+
 
 
 
@@ -73,6 +75,7 @@ import {MatCommonModule} from '@angular/material/core';
 
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,12 @@ import {MatCommonModule} from '@angular/material/core';
     MatFormFieldModule,
     MatCommonModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptorInterceptor,
+    multi:true
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

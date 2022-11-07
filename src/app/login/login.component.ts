@@ -1,5 +1,10 @@
+import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { LoginReques } from '../models/login-reques';
+import { AuthToken } from '../models/token';
+import { LoginService } from '../Services/login.service';
+import { PlantillaServiceService } from '../Services/plantilla-service.service';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +13,27 @@ import { Route, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route:Router,private logins:LoginService) { }
 
   ngOnInit(): void {
   }
-  user!:string;
-  pass!:string;
+ request:LoginReques=new LoginReques();
+
+
+
 
 
   onSubmit(){
 
-  this.route.navigate(["/dashboard"]);
+this.logins.login(this.request).subscribe(data=>{console.log(data)
+
+  localStorage.setItem("token",data.authToken)
+})
+
+this.route.navigate(["/dashboard"]);
 
   }
 
 
-
 }
+

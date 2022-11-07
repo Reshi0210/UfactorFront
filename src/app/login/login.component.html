@@ -3,13 +3,13 @@
     <div class="position-absolute top-50 start-50 translate-middle">
       <h1>Iniciar Sesion</h1>
       <br />
-      <form (submit)="onSubmit()" #myForm="ngForm">
+      <form (ngSubmit)="onSubmit()" #myForm="ngForm">
         <div class="form-group">
           <input
             name="user"
             class="form-control"
             type="text"
-            [ngModel]="user"
+            [(ngModel)]="request.username"
             placeholder="Usuario"
           />
           <br />
@@ -17,7 +17,7 @@
             name="pass"
             class="form-control"
             type="text"
-            [ngModel]="pass"
+            [(ngModel)]="request.password"
             placeholder="Contraseña"
           />
         </div>
@@ -27,3 +27,4 @@
     </div>
   </div>
 </div>
+
