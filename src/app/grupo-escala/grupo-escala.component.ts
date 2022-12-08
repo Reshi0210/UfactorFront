@@ -30,9 +30,10 @@ export class GrupoEscalaComponent implements OnInit {
     this.route.navigate(["dashboard/calificadores/grupo-escala/update-escala",id]);
   }
   delete(id:number){
+    if(confirm("Esta a punto de eliminar este grupo escala ,desea continuar?")){
     this.scalesS.delete(id).subscribe(data=>{console.log(data)
       this.getAll();
-    })
+    },(error)=>{alert("no puede eliminar un grupo escala mientras halla algun cargo relacionado al mismo")})}
   }
 
 }

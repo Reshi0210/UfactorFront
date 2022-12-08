@@ -6,6 +6,7 @@ import { Position } from '../models/position';
 import { Scholarship } from '../models/scholarship';
 import { Worker } from '../models/worker';
 import { CreateWorkerService } from '../Services/create-worker.service';
+import { FilterService } from '../Services/filter.service';
 
 @Component({
   selector: 'app-formulario-i',
@@ -15,6 +16,10 @@ import { CreateWorkerService } from '../Services/create-worker.service';
 export class FormularioIComponent implements OnInit {
 
  worker:Worker=new Worker ();
+ workerCi!:Worker[];
+ ciExist:boolean=false;
+
+
 
 
   listaSexo:String[]=["M","F"];
@@ -26,7 +31,7 @@ export class FormularioIComponent implements OnInit {
   ListaPolitic!:PoliticIntegration[];
   ListaScholar!:Scholarship[];
 
-  constructor(private createWorkerService:CreateWorkerService,private route:Router) { }
+  constructor(private createWorkerService:CreateWorkerService,private route:Router,private filterS:FilterService) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -34,8 +39,12 @@ export class FormularioIComponent implements OnInit {
   }
 
   onSubmit():void{
+  if(this.workerCi.length==0){
    this.saveNewWorker();
-
+  }
+  else{
+  alert("Este Carnet ya esta en uso")
+ }
 
   }
 
@@ -47,6 +56,7 @@ export class FormularioIComponent implements OnInit {
           }
 
    saveNewWorker()   {
+    this.worker.active="active"
   this.createWorkerService.createWorker(this.worker).subscribe(data=>{
      console.log(data);
      alert("empleado Creado con exito");
@@ -56,6 +66,13 @@ export class FormularioIComponent implements OnInit {
 
  goToPlantilla(){
 this.route.navigate(["dashboard/plantilla"]);
+
+ }
+
+ findByCi(){
+this.filterS.filterByCriteria(this.worker.ci.toString()).subscribe(data=>{this.workerCi=data
+console.log(data)
+})
 
  }
 

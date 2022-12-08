@@ -41,6 +41,18 @@
     </div>
 
     <div class="row">
+      <label >Activo:</label>
+      <mat-form-field appearance="fill">
+      <mat-select  name="selecta" [(ngModel)]="worker.active">
+      <mat-option  value="active">activo </mat-option>
+      <mat-option  value="nonActive">no activo </mat-option>
+      </mat-select>
+      </mat-form-field>
+      </div>
+
+
+
+    <div class="row">
     <label>N.Expediente</label>
     <mat-form-field appearance="fill">
     <input matInput required type="number"  name="expedienten" [(ngModel)]="worker.expedientNumber" >

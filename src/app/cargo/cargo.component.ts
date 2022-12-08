@@ -29,10 +29,14 @@ export class CargoComponent implements OnInit {
   update(id:number){
     this.route.navigate(["dashboard/calificadores/cargo/update-cargo",id]);
   }
+
+
   delete(id:number){
+    if(confirm("Esta a punto de eliminar este Cargo,desea continuar?")){
     this.positionS.delete(id).subscribe(data=>{console.log(data)
       this.getAll();
-    })
-  }
+
+    },(error)=>{alert("No puede eliminar un cargo que pertenezca a un trabajador activo")})
+  }}
 
 }

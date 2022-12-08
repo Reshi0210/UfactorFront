@@ -30,9 +30,10 @@ export class DepartamentoComponent implements OnInit {
     this.route.navigate(["dashboard/calificadores/departamento/update-depa",id]);
   }
   deleteDepa(id:number){
+    if(confirm("Esta a punto de borrar un departamento,desea continuar?")){
     this.depas.deleteDepa(id).subscribe(data=>{console.log(data)
       this.getAll();
-    })
+    },(error)=>{alert("no puede eliminar un departamento que tenga al menos un trabajador")})}
   }
 
 }

@@ -1,6 +1,7 @@
 import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { LoginReques } from '../models/login-reques';
 import { AuthToken } from '../models/token';
 import { LoginService } from '../Services/login.service';
@@ -28,11 +29,14 @@ export class LoginComponent implements OnInit {
 this.logins.login(this.request).subscribe(data=>{console.log(data)
 
   localStorage.setItem("token",data.authToken)
-})
+},
+(error)=>{alert("Credenciales Incorrectas")})
 
-this.route.navigate(["/dashboard"]);
+setTimeout(() => {this.route.navigate(["/dashboard"]);}, 300);
 
-  }
+
+
+}
 
 
 }

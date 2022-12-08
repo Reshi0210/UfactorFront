@@ -34,6 +34,7 @@ export class PlantillaComponent implements OnInit {
   ListaPolitic!:PoliticIntegration[];
   ListaScholar!:Scholarship[];
   ListaScholarLevel:String[]=["TecMedio","Univ","PreUniv","Noveno","Doc","Master"];
+  listaActive:String[]=["active","nonActive"];
 
 
 
@@ -81,6 +82,10 @@ vaciarSch(){
 
 }
 
+vaciarActive(){
+  delete this.workerExample.active
+}
+
 
 
 filterByCriteria(){
@@ -115,6 +120,7 @@ vaciar(){
         delete this.workerExample.expedientNumber
         delete this.workerExample.contractType
         delete this.workerExample.race
+        delete this.workerExample.active
         this.scholarLevel="";
 
 
@@ -138,12 +144,15 @@ private getall(){
 updateWorker(id:Number){
 this.route.navigate(["dashboard/FormularioU",id]);
 }
+
 deleteWorker(id:Number){
+
+  if (confirm("Esta a punto de borrar al trabajador de forma permanente,desea continuar?")){
   this.plantS.deleteWorker(id).subscribe(data=>{
     this.getall();
     console.log(data);
 
-  });
+  });}
 
 
 

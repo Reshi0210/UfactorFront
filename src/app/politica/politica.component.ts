@@ -29,9 +29,10 @@ export class PoliticaComponent implements OnInit {
     this.route.navigate(["dashboard/calificadores/politica/update-politic",id]);
   }
   delete(id:number){
+    if(confirm("Esta a punto de eliminar esta organizacion politica ,desea continuar?")){
     this.politicS.delete(id).subscribe(data=>{console.log(data)
       this.getAll();
-    })
+    },(error)=>{alert("no puede eliminar una organziacion politica si algun trabajador pertenece a ella")})}
   }
 
 }

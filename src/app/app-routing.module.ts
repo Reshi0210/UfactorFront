@@ -15,6 +15,9 @@ import { EscolaridadComponent } from './escolaridad/escolaridad.component';
 import { FormularioIComponent } from './formulario-i/formulario-i.component';
 import { FormularioUComponent } from './formulario-u/formulario-u.component';
 import { GrupoEscalaComponent } from './grupo-escala/grupo-escala.component';
+import { FirstGuardGuard } from './Guards/first-guard.guard';
+import { SecondGuard } from './Guards/second-guard.guard';
+
 import { LoginComponent } from './login/login.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { PoliticaComponent } from './politica/politica.component';
@@ -30,6 +33,8 @@ const routes: Routes = [
    {path:"login",component:LoginComponent}
   ,{path:"",redirectTo:"/login",pathMatch:"full"}
   ,{path:"dashboard",component:DashboardComponent,
+  canActivate:[FirstGuardGuard],
+  canActivateChild:[SecondGuard],
   children:[{ path:"plantilla",component:PlantillaComponent}
             ,{ path:"contratos",component:ContratosComponent }
             ,{path:"plantilla/formularioI",component:FormularioIComponent}

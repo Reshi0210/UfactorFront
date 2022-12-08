@@ -30,9 +30,10 @@ export class EscolaridadComponent implements OnInit {
     this.route.navigate(["dashboard/calificadores/escolaridad/update-escolaridad",id]);
   }
   delete(id:number){
+    if(confirm("Esta a punto de eliminar esta escolaridad,desea continuar?")){
     this.scholarS.delete(id).subscribe(data=>{console.log(data)
       this.getAll();
-    })
+    },(error)=>{alert("No puede eliminar una escolaridad mientras pertenezca a algun trabajador")})}
   }
 
 }

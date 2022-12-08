@@ -5,13 +5,14 @@ import { Scholarship } from "./scholarship";
 
 export class Worker {
   id!:Number;
-  ci!:String;
+  ci!:string;
   firstName?:String;
   secondName?:String;
   lastName?:String;
   race?:String;
   sex?:String;
   expedientNumber?:Number;
+  active?:String;
   contractType?:String;
   defensePlace?:String;
   politiclist?:PoliticIntegration[];

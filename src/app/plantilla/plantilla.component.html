@@ -46,6 +46,7 @@
           <br />
         </div>
       </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
       <div class="col">
         <div class="form-control">
           <label for="race">Raza:</label>
@@ -65,6 +66,7 @@
           </div>
         </div>
       </div>
+      <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
       <div class="col">
         <div class="form-control">
           <label for="sex">Sexo:</label>
@@ -123,7 +125,7 @@
           </div>
         </div>
       </div>
-
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
       <div class="col">
         <div class="form-control">
           <label for="defense">Lugar En la Defenza:</label>
@@ -163,12 +165,13 @@
           </div>
         </div>
       </div>
+      <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
       <div class="col">
         <div class="form-control">
           <label for="expN">Numero de Exp:</label>
           <div class="input-group mb-3">
             <input
-              class="form-select"
+              class="form-control"
               name="expN"
               [(ngModel)]="workerExample.expedientNumber"
               type="text"
@@ -178,6 +181,7 @@
           </div>
         </div>
       </div>
+      <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
       <div class="col">
         <div class="form-control">
           <label for="depa">Departamento</label>
@@ -218,14 +222,44 @@
           </div>
         </div>
       </div>
-    </div>
+
     <br />
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="col">
+      <div class="form-control">
+        <label for="race">Activo:</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="active"
+            [(ngModel)]="workerExample.active"
+          >
+          <option [value]="item" *ngFor="let item of listaActive">
+            {{ item }}
+          </option>
+          </select>
+          <button class="btn btn-warning" (click)="vaciarActive()">
+            Vaciar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
     <div class="btn-group">
       <button type="submit" class="btn btn-success" (click)="filtrar()">
         Filtrar
       </button>
       <button (click)="vaciar()" class="btn btn-danger">vaciar</button>
     </div>
+  </div>
+
+  </div>
+  <br>
+<!----------------------------------------------------------------------------Botones de filtro--------------------------------------------------------------------------->
+
+
+
     <!--------------------------------------------------------------------------Fin---Campos--Filtro-------------------------------------------------------------------------------->
   </form>
 </div>
@@ -259,6 +293,7 @@
         <th scope="col">cargo</th>
         <th scope="col">Grupo Escala</th>
         <th scope="col">Departamento</th>
+        <th scope="col">Activo</th>
         <th scope="col">Actualizar</th>
         <th scope="col">Eliminar</th>
       </tr>
@@ -288,6 +323,7 @@
         <td scope="col">{{ worker.position?.positionName }}</td>
         <td scope="col">{{ worker.position?.scaleGroup?.scale }}</td>
         <td scope="col">{{ worker.department?.departamentName }}</td>
+        <td scope="col">{{ worker.active}} </td>
         <td scope="col">
           <button class="btn btn-info" (click)="updateWorker(worker.id)">
             Update
