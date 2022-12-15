@@ -244,20 +244,50 @@
         </div>
       </div>
     </div>
-
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="col">
-    <div class="btn-group">
-      <button type="submit" class="btn btn-success" (click)="filtrar()">
-        Filtrar
-      </button>
-      <button (click)="vaciar()" class="btn btn-danger">vaciar</button>
+
+
+
+        <div class="form-control">
+          <label for="expN">Rango de edad Min/Max:</label>
+          <div class="input-group mb-3">
+            <input
+              class="form-control"
+              name="min"
+              [(ngModel)]="min"
+              type="text"
+            />
+            <input
+            class="form-control"
+            name="max"
+            [(ngModel)]="max"
+            type="text"
+          />
+            <button class="btn btn-warning" (click)="vaciarAge()">
+              Vaciar
+            </button>
+          </div>
+        </div>
+
+
+
+
+
+
+
     </div>
-  </div>
 
-  </div>
-  <br>
+   </div>
 <!----------------------------------------------------------------------------Botones de filtro--------------------------------------------------------------------------->
+<br>
 
+<div class="btn-group">
+  <button type="submit" class="btn btn-success" (click)="filtrar()">
+    Filtrar
+  </button>
+  <button (click)="vaciar()" class="btn btn-danger">vaciar</button>
+</div>
 
 
     <!--------------------------------------------------------------------------Fin---Campos--Filtro-------------------------------------------------------------------------------->

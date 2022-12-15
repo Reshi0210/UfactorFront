@@ -24,6 +24,8 @@ export class PlantillaComponent implements OnInit {
   criteria:string="";
   public workers!: Worker[];
   activeFilter:boolean=false;
+  min:number=0;
+  max:number=100;
 
   listaSexo:String[]=["M","F"];
   listaDefensa:String[]=["ORAE","Imprescindible","BDP","Reserva","NoIncorporado","Ninguno"];
@@ -86,6 +88,11 @@ vaciarActive(){
   delete this.workerExample.active
 }
 
+vaciarAge(){
+  this.min=0;
+  this.max=100;
+}
+
 
 
 filterByCriteria(){
@@ -99,7 +106,7 @@ filterByCriteria(){
 filtrar(){
 console.log(this.workerExample)
 console.log(this.scholarLevel)
-this.filters.filterByExample(this.workerExample,this.scholarLevel).subscribe(data=>{this.workers=data})
+this.filters.filterByExample(this.workerExample,this.scholarLevel,this.min,this.max).subscribe(data=>{this.workers=data})
 }
 
 
@@ -122,6 +129,8 @@ vaciar(){
         delete this.workerExample.race
         delete this.workerExample.active
         this.scholarLevel="";
+        this.min=0;
+        this.max=100;
 
 
 

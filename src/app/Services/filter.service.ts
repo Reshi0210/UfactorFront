@@ -20,11 +20,16 @@ filterbyCriteriaUrl="http://localhost:8092/api/v1/filterByCriteria"
 return this.httpc.post<Worker[]>(`${this.filterbyExampleUrl}`,workerExample);
 }*/
 
-filterByExample(workerExample:Worker,level:string):Observable<Worker[]>{
+filterByExample(workerExample:Worker,level:string,min:number,max:number):Observable<Worker[]>{
 
   const headers=new HttpHeaders({
     "level":level,
+    "min":min.toString(),
+    "max":max.toString(),
+
 })
+
+
  return this.httpc.post<Worker[]>(`${this.filterbyEUrl}`,workerExample,{headers});
   }
 
