@@ -30,7 +30,12 @@ this.logins.login(this.request).subscribe(data=>{console.log(data)
 
   localStorage.setItem("token",data.authToken)
 },
-(error)=>{alert("Credenciales Incorrectas")})
+(error)=>{
+  error.status==401? alert("Credenciales Incorrectas"):alert("Error")
+
+
+
+})
 
 setTimeout(() => {this.route.navigate(["/dashboard"]);}, 300);
 
