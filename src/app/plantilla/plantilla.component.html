@@ -21,7 +21,8 @@
 
   </mat-toolbar-row>
 </mat-toolbar>
-<app-test-report></app-test-report>
+
+<app-test-report [HtmlElementInput]="HtmlElementToReport" [Lista]="lista"></app-test-report>
 
 <br />
 <br />
@@ -300,14 +301,14 @@
 <!---------------------------------------------------------------------------Tabla-Datos--------------------------------------------------------------------------------------->
 <div class="position-relative">
   <div class="position-absolute top-50 start-50 translate-middle">
-    <h1>Plantilla de Trabajadores</h1>
+    <h1 id="title">Plantilla de Trabajadores</h1>
   </div>
 </div>
 <br />
 <br />
 <br />
 <div class="container-fluid">
-  <table class="table table-striped">
+  <table id="tableOfData" class="table table-striped">
     <thead>
       <tr>
         <th scope="col">CI</th>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, DoCheck, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Worker } from '../models/worker';
 import { PlantillaServiceService } from '../Services/plantilla-service.service';
@@ -16,8 +16,10 @@ import { delay } from 'rxjs';
   templateUrl: './plantilla.component.html',
   styleUrls: ['./plantilla.component.css']
 })
-export class PlantillaComponent implements OnInit {
+export class PlantillaComponent implements OnInit ,AfterContentInit,DoCheck {
 
+  HtmlElementToReport:HTMLElement;
+  lista;
 
   workerExample:Worker=new Worker ();
   scholarLevel!:string;
@@ -42,7 +44,15 @@ export class PlantillaComponent implements OnInit {
 
 
   constructor(private plantS:PlantillaServiceService,private route:Router,private createWorkerService:CreateWorkerService,private filters:FilterService) { }
+  ngDoCheck(): void {
+    this.lista=this.workers;
+  }
 
+  ngAfterContentInit(): void {
+    this.HtmlElementToReport=document.getElementById("tableOfData");
+
+
+  }
 
   ngOnInit(): void {
     this.getall();
