@@ -26,6 +26,7 @@ import { UpdateDepaComponent } from './update-depa/update-depa.component';
 import { UpdateEscalaComponent } from './update-escala/update-escala.component';
 import { UpdateEscolaridadComponent } from './update-escolaridad/update-escolaridad.component';
 import { UpdateIntegracionesPoliticasComponent } from './update-integraciones-politicas/update-integraciones-politicas.component';
+import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
 
 const routes: Routes = [
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   canActivate:[FirstGuardGuard],
   canActivateChild:[SecondGuard],
   children:[{ path:"plantilla",component:PlantillaComponent}
+            ,{ path:"worker-detail/:id",component:WorkerDetailComponent}
             ,{ path:"contratos",component:ContratosComponent }
             ,{path:"plantilla/formularioI",component:FormularioIComponent}
             ,{ path:"FormularioU/:id",component:FormularioUComponent}

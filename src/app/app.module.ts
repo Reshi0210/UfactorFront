@@ -42,6 +42,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCommonModule} from '@angular/material/core';
 import { AuthInterceptorInterceptor } from './Interceptors/auth-interceptor.interceptor';
 import { TestReportComponent } from './test-report/test-report.component';
+import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
 
 
 
@@ -73,6 +74,7 @@ import { TestReportComponent } from './test-report/test-report.component';
     CrearEscolaridadComponent,
     UpdateEscolaridadComponent,
     TestReportComponent,
+    WorkerDetailComponent,
 
 
 

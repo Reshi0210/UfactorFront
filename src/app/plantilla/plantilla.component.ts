@@ -177,5 +177,10 @@ deleteWorker(id:Number){
 
 }
 
+goToWorkerDetail(id:Number){
+  this.route.navigate(["dashboard/worker-detail",id]);
+  }
+
+
 
 }

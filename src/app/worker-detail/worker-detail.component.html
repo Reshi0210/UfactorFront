@@ -1,0 +1,48 @@
+<mat-toolbar >
+  <mat-toolbar-row></mat-toolbar-row>
+</mat-toolbar>
+
+<div class="position-relative">
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <h1 id="title">Detalles del Trabajador</h1>
+     </div>
+    </div>
+
+<div class="container"></div>
+     <div class="container-fluid">
+      <br>
+      <br>
+      <br>
+      <h3><label>Nombre: </label>{{worker.firstName}}</h3>
+      <h3><label>Apellidos: </label>{{worker.secondName}} {{worker.secondName}}</h3>
+      <h3 ><label>dni:</label> {{ worker.ci }}</h3>
+      <h3 ><label>raza:</label>{{ worker.race }}</h3>
+      <h3 ><label>sexo:</label>{{ worker.sex }}</h3>
+      <h3 ><label>numero de expediente:</label>{{ worker.expedientNumber }}</h3>
+      <h3 ><label>tipo de contrato:</label>{{ worker.contractType }}</h3>
+      <h3 ><label>lugar en la defensa:</label>{{ worker.defensePlace }}</h3>
+      <h3 > Integraciones politicas:
+        <p *ngFor="let political of worker.politiclist">
+          {{ political.organ }}
+        </p>
+      </h3>
+      <h3 >Escolaridades:
+        <p *ngFor="let scholar of worker.scholarShiplist">
+          {{ scholar.scholarName }}:
+          {{ scholar.scholarLevel }}
+        </p>
+      </h3>
+      <h3 ><label>Cargo:</label>{{ worker.position?.positionName }}</h3>
+      <h3 ><label>Grupo Escala:</label>{{ worker.position?.scaleGroup?.scale }}</h3>
+      <h3 ><label>Departamento:</label>{{ worker.department?.departamentName }}</h3>
+      <h3 >Alta/Baja{{ worker.active}} </h3>
+     </div>
+
+
+
+
+
+
+
+
+
