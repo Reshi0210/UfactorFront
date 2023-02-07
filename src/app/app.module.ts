@@ -43,6 +43,8 @@ import {MatCommonModule} from '@angular/material/core';
 import { AuthInterceptorInterceptor } from './Interceptors/auth-interceptor.interceptor';
 import { TestReportComponent } from './test-report/test-report.component';
 import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
+import {MatCardModule} from '@angular/material/card';
+import { WorkerDetailReportComponent } from './worker-detail-report/worker-detail-report.component';
 
 
 
@@ -75,6 +77,7 @@ import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
     UpdateEscolaridadComponent,
     TestReportComponent,
     WorkerDetailComponent,
+    WorkerDetailReportComponent,
 
 
 
@@ -97,6 +100,7 @@ import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
+    MatCardModule,
     MatCommonModule
   ],
   providers: [

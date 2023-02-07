@@ -9,6 +9,7 @@
     <button mat-button (click)="showFilters1()">
       <mat-icon>filter_alt</mat-icon>
     </button>
+    <app-test-report [HtmlElementInput]="HtmlElementToReport" [Lista]="lista"></app-test-report>
     <button mat-button><mat-icon>search</mat-icon></button>
     <input
       name="criteria"
@@ -22,7 +23,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<app-test-report [HtmlElementInput]="HtmlElementToReport" [Lista]="lista"></app-test-report>
+
 
 <br />
 <br />

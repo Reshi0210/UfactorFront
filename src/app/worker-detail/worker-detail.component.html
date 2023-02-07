@@ -1,47 +1,46 @@
 <mat-toolbar >
-  <mat-toolbar-row></mat-toolbar-row>
+  <mat-toolbar-row><app-worker-detail-report [HtmlElementInput]="HtmlElementToReport" ></app-worker-detail-report></mat-toolbar-row>
 </mat-toolbar>
 
-<div class="position-relative">
-  <div class="position-absolute top-50 start-50 translate-middle">
-    <h1 id="title">Detalles del Trabajador</h1>
-     </div>
-    </div>
 
-<div class="container"></div>
-     <div class="container-fluid">
+
+<div class="container" id="details">
+  <mat-card-header><h5>Detalles Del Trabajador</h5></mat-card-header>
+<mat-card>
+  <mat-card-content>
       <br>
       <br>
       <br>
-      <h3><label>Nombre: </label>{{worker.firstName}}</h3>
-      <h3><label>Apellidos: </label>{{worker.secondName}} {{worker.secondName}}</h3>
-      <h3 ><label>dni:</label> {{ worker.ci }}</h3>
-      <h3 ><label>raza:</label>{{ worker.race }}</h3>
-      <h3 ><label>sexo:</label>{{ worker.sex }}</h3>
-      <h3 ><label>numero de expediente:</label>{{ worker.expedientNumber }}</h3>
-      <h3 ><label>tipo de contrato:</label>{{ worker.contractType }}</h3>
-      <h3 ><label>lugar en la defensa:</label>{{ worker.defensePlace }}</h3>
-      <h3 > Integraciones politicas:
+      <h6><label ><b>Nombre:</b> </label>{{worker.firstName}}</h6>
+      <h6><label ><b>Apellidos:</b> </label>{{worker.secondName}} {{worker.secondName}}</h6>
+      <h6 ><label ><b>Dni</b>:</label> {{ worker.ci }}</h6>
+      <h6 ><label ><b>Raza:</b></label>{{ worker.race }}</h6>
+      <h6 ><label ><b>Sexo:</b></label>{{ worker.sex }}</h6>
+      <h6 ><label ><b>Número de expediente:</b></label>{{ worker.expedientNumber }}</h6>
+      <h6 ><label ><b>Tipo de contrato:</b></label>{{ worker.contractType }}</h6>
+      <h6 ><label ><b>Lugar en la defensa:</b></label>{{ worker.defensePlace }}</h6>
+      <h6 ><label >Integraciones politicas:<b></b></label>
         <p *ngFor="let political of worker.politiclist">
           {{ political.organ }}
         </p>
-      </h3>
-      <h3 >Escolaridades:
+      </h6>
+      <h6><label ><b>Escolaridades</b></label>
         <p *ngFor="let scholar of worker.scholarShiplist">
           {{ scholar.scholarName }}:
           {{ scholar.scholarLevel }}
         </p>
-      </h3>
-      <h3 ><label>Cargo:</label>{{ worker.position?.positionName }}</h3>
-      <h3 ><label>Grupo Escala:</label>{{ worker.position?.scaleGroup?.scale }}</h3>
-      <h3 ><label>Departamento:</label>{{ worker.department?.departamentName }}</h3>
-      <h3 >Alta/Baja{{ worker.active}} </h3>
-     </div>
+      </h6>
+      <h6 ><label ><b>Cargo:</b></label>{{ worker.position?.positionName }}</h6>
+      <h6 ><label ><b>Grupo Escala:</b></label>{{ worker.position?.scaleGroup?.scale }}</h6>
+      <h6 ><label ><b>Departamento:</b></label>{{ worker.department?.departamentName }}</h6>
+      <h6 ><label ><b>Alta/Baja:</b></label> {{ worker.active}} </h6>
 
 
+    </mat-card-content>
+    </mat-card>
 
 
-
+  </div>
 
 
 

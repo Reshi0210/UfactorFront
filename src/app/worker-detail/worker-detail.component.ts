@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Department } from '../models/department';
 import { PoliticIntegration } from '../models/politic-integration';
@@ -12,19 +12,24 @@ import { CreateWorkerService } from '../Services/create-worker.service';
   templateUrl: './worker-detail.component.html',
   styleUrls: ['./worker-detail.component.css']
 })
-export class WorkerDetailComponent implements OnInit {
+export class WorkerDetailComponent implements OnInit, AfterContentInit{
 
   constructor( private createWorkerService: CreateWorkerService,
     private route: Router,
     private aroute: ActivatedRoute) { }
 
+
     worker: Worker = new Worker();
     id!: number;
+    HtmlElementToReport:HTMLElement;
 
 
   ngOnInit(): void {
     this.id = this.aroute.snapshot.params['id'];
     this.getWorkerById();
+  }
+  ngAfterContentInit(): void {
+    this.HtmlElementToReport=document.getElementById("details");
   }
 
 
