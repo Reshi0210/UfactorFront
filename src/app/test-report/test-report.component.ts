@@ -21,11 +21,11 @@ export class TestReportComponent implements OnInit {
    ngOnInit(): void {}
 
 
-CreatePdfWhitHtmlElementInpunt(){
+CreatePdfWhitHtmlElementInput(){
 
   console.log(this.Lista);
 
-    const pdfdefinition:any={content:[{text:"Cumplen con el requisito"+" :"+this.CreateContentOfPdfReport()}]}
+    const pdfdefinition:any={content:[{text:"Criterio de busqueda cumplido para "+" :"+this.CreateContentOfPdfReport()+"para un total de: "+this.Lista.length}]}
     const pdf=pdfMake.createPdf(pdfdefinition);
     pdf.open();
 
@@ -63,7 +63,7 @@ CreatePdfWhitHtmlElementInpunt(){
  CreateContentOfPdfReport():String{
 
   var result:String=""
-  this.Lista.forEach((worker)=>{ result+=worker.firstName+"  "})
+  this.Lista.forEach((worker)=>{ result+=worker.firstName+"  ,"})
 
    return result
  }

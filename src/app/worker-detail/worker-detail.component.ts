@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Department } from '../models/department';
 import { PoliticIntegration } from '../models/politic-integration';
@@ -12,16 +12,18 @@ import { CreateWorkerService } from '../Services/create-worker.service';
   templateUrl: './worker-detail.component.html',
   styleUrls: ['./worker-detail.component.css']
 })
-export class WorkerDetailComponent implements OnInit, AfterContentInit{
+export class WorkerDetailComponent implements OnInit, AfterContentInit,DoCheck{
 
   constructor( private createWorkerService: CreateWorkerService,
     private route: Router,
     private aroute: ActivatedRoute) { }
 
 
+
     worker: Worker = new Worker();
     id!: number;
     HtmlElementToReport:HTMLElement;
+    WorkerToReport:Worker;
 
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class WorkerDetailComponent implements OnInit, AfterContentInit{
   }
   ngAfterContentInit(): void {
     this.HtmlElementToReport=document.getElementById("details");
+  }
+
+  ngDoCheck(): void {
+    this.WorkerToReport=this.worker;
   }
 
 

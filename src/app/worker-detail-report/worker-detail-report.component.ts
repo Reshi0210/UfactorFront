@@ -4,6 +4,7 @@ import  pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas'
+import { Worker } from '../models/worker';
 
 @Component({
   selector: 'app-worker-detail-report',
@@ -18,14 +19,15 @@ export class WorkerDetailReportComponent implements OnInit {
   ngOnInit(): void {}
 
   @Input() HtmlElementInput:HTMLElement;
+  @Input() workerInput:Worker;
 
-  CreatePdfWhitHtmlElementInpunt(){
+  CreatePdfWhitHtmlElementInput(){
 
 
 
-      /*const pdfdefinition:any={content:[{text:"Un Reporte y esas Cosas"}]}
+      const pdfdefinition:any={content:[{text:"Detalles del Trabajador: " +this.CreateContentOfPdfReport()}]}
       const pdf=pdfMake.createPdf(pdfdefinition);
-      pdf.open();*/
+      pdf.open();
 
 
 
@@ -33,7 +35,7 @@ export class WorkerDetailReportComponent implements OnInit {
 
 
 
-      const doc = new jsPDF('p', 'pt', 'a4');
+     /* const doc = new jsPDF('p', 'pt', 'a4');
         const options = {
           background: 'white',
           scale: 5
@@ -52,8 +54,24 @@ export class WorkerDetailReportComponent implements OnInit {
           return doc;
         }).then((docResult) => {
           docResult.save(`${new Date().toISOString()}_Reporte.pdf`);
-        });
+        });*/
     }
+
+    CreateContentOfPdfReport():String{
+
+      var result:string=""
+      result+=this.workerInput.ci +" ,";
+      result+=this.workerInput.firstName +" ,";
+      result+=this.workerInput.secondName +"";
+      result+=this.workerInput.lastName+" ,";
+      result+=this.workerInput.sex+" ,";
+      result+=this.workerInput.race+" ,";
+      result+=this.workerInput.defensePlace+" ,";
+
+
+
+       return result
+     }
 
 
 }
