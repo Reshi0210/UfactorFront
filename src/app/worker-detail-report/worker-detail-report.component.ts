@@ -59,14 +59,24 @@ export class WorkerDetailReportComponent implements OnInit {
 
     CreateContentOfPdfReport():String{
 
-      var result:string=""
-      result+=this.workerInput.ci +" ,";
-      result+=this.workerInput.firstName +" ,";
-      result+=this.workerInput.secondName +"";
-      result+=this.workerInput.lastName+" ,";
-      result+=this.workerInput.sex+" ,";
-      result+=this.workerInput.race+" ,";
-      result+=this.workerInput.defensePlace+" ,";
+      var result:string="\n \n"
+      result+="CI:"+this.workerInput.ci +" \n";
+      result+="Nombre:"+this.workerInput.firstName +" \n";
+      result+="Apellidos:"+this.workerInput.secondName +"";
+      result+=this.workerInput.lastName+" \n";
+      result+="Sexo:"+this.workerInput.sex+" \n";
+      result+="Raza:"+this.workerInput.race+" \n";
+      result+="Lugar Defensa:"+this.workerInput.defensePlace+" \n\n";
+      result+="Integraciones politicas:\n"
+      this.workerInput.politiclist.forEach(p =>result+="-"+p.organ+"\n")
+      result+="\n"
+      result+="Escolaridades:\n"
+      this.workerInput.scholarShiplist.forEach(s=>result+="-"+s.scholarName+":"+s.scholarLevel+"\n")
+      result+="\n"
+      result+="Cargo:"+this.workerInput.position.positionName+" \n";
+      result+="Grupo Escala:"+this.workerInput.position.scaleGroup.scale+" \n";
+      result+="Departamento:"+this.workerInput.department.departamentName+" \n";
+      result+="Cargo:"+this.workerInput.active+" \n";
 
 
 

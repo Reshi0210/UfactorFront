@@ -298,6 +298,8 @@
 </div>
 <br />
 <br />
+<br />
+<br />
 
 <!---------------------------------------------------------------------------Tabla-Datos--------------------------------------------------------------------------------------->
 <div class="position-relative">
@@ -361,19 +363,19 @@
 
         <td scope="col">
         <button class="btn btn-info" (click)="goToWorkerDetail(worker.id)">
-          Details
+          <mat-icon>description</mat-icon>
         </button>
         </td>
 
         <td scope="col">
           <button class="btn btn-info" (click)="updateWorker(worker.id)">
-            Update
+            <mat-icon>loop</mat-icon>
           </button>
         </td>
 
         <td scope="col">
           <button class="btn btn-danger" (click)="deleteWorker(worker.id)">
-            Delete
+            <mat-icon>delete</mat-icon>
           </button>
         </td>
 

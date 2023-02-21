@@ -25,7 +25,12 @@ CreatePdfWhitHtmlElementInput(){
 
   console.log(this.Lista);
 
-    const pdfdefinition:any={content:[{text:"Criterio de busqueda cumplido para "+" :"+this.CreateContentOfPdfReport()+"para un total de: "+this.Lista.length}]}
+    const pdfdefinition:any={content:[{text:"Criterio de busqueda cumplido para "+" :"},
+   { text:"\n -"+
+     this.CreateContentOfPdfReport()
+    },
+
+    {text:"para un total de: "+this.Lista.length}]}
     const pdf=pdfMake.createPdf(pdfdefinition);
     pdf.open();
 
@@ -63,13 +68,15 @@ CreatePdfWhitHtmlElementInput(){
  CreateContentOfPdfReport():String{
 
   var result:String=""
-  this.Lista.forEach((worker)=>{ result+=worker.firstName+"  ,"})
+  this.Lista.forEach((worker)=>{ result+=worker.firstName+"  \n-"})
+
 
    return result
  }
 
-  }
 
+
+  }
 
 
 
