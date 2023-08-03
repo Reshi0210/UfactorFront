@@ -19,17 +19,8 @@
       <h6 ><label ><b>Número de expediente:</b></label>{{ worker.expedientNumber }}</h6>
       <h6 ><label ><b>Tipo de contrato:</b></label>{{ worker.contractType }}</h6>
       <h6 ><label ><b>Lugar en la defensa:</b></label>{{ worker.defensePlace }}</h6>
-      <h6 ><label >Integraciones politicas:<b></b></label>
-        <p *ngFor="let political of worker.politiclist">
-          {{ political.organ }}
-        </p>
-      </h6>
-      <h6><label ><b>Escolaridades</b></label>
-        <p *ngFor="let scholar of worker.scholarShiplist">
-          {{ scholar.scholarName }}:
-          {{ scholar.scholarLevel }}
-        </p>
-      </h6>
+      <h6 ><label ><b>Nivel Escolar:</b></label>{{ worker.scholarShip?.scholarLevel }}</h6>
+      <h6 ><label ><b>Especialidad:</b></label>{{ worker.scholarShip?.scholarName }}</h6>
       <h6 ><label ><b>Cargo:</b></label>{{ worker.position?.positionName }}</h6>
       <h6 ><label ><b>Grupo Escala:</b></label>{{ worker.position?.scaleGroup?.scale }}</h6>
       <h6 ><label ><b>Departamento:</b></label>{{ worker.department?.departamentName }}</h6>

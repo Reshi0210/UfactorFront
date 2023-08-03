@@ -43,7 +43,7 @@
   <input matInput type="number" required  min="10000000000" max="99999999999"  name="ci" [(ngModel)]="worker.ci" #valid4="ngModel" (keyup)="findByCi()" (click)="findByCi()" (auxclick)="findByCi()">
   <mat-error *ngIf="valid4.invalid && valid4.hasError('min')">no menos de 11 digitos</mat-error>
   <mat-error *ngIf="valid4.invalid && valid4.hasError('max')">no mas de 11 digitoss</mat-error>
-  <mat-error *ngIf="valid4.invalid && valid4.hasError('required')">Campo requerido</mat-error>
+  <mat-error *ngIf="valid4.valid && valid4.hasError('required')">Campo requerido</mat-error>
 
 
   </mat-form-field>
@@ -131,21 +131,12 @@
   </div>
   <br>
 
-     <div class="row">
-      <label >I.Politica:</label>
-      <mat-form-field appearance="fill" >
-      <mat-select required  name="selectpol" [(ngModel)]="worker.politiclist" multiple="multiple">
-      <mat-option [value]="item" *ngFor="let item of ListaPolitic">{{item.organ}}</mat-option>
-      </mat-select>
-      <mat-error>El campo es requerido</mat-error>
-      </mat-form-field>
-     </div>
-     <br>
+  
 
         <div class="row">
         <label >Escolaridades:</label>
         <mat-form-field appearance="fill" >
-        <mat-select required name="selectes" [(ngModel)]="worker.scholarShiplist" multiple="multiple">
+        <mat-select required name="selectes" [(ngModel)]="worker.scholarShip" >
         <mat-option [value]="item" *ngFor="let item of ListaScholar">{{item.scholarName}}</mat-option>
         </mat-select>
         <mat-error>El campo es requerido</mat-error>

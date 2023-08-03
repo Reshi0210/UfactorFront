@@ -9,6 +9,7 @@ import { Scholarship } from '../models/scholarship';
 import { CreateWorkerService } from '../Services/create-worker.service';
 import { FilterService } from '../Services/filter.service';
 import { delay } from 'rxjs';
+import { Page } from '../page';
 
 
 @Component({
@@ -23,11 +24,15 @@ export class PlantillaComponent implements OnInit ,AfterContentInit,DoCheck {
 
   workerExample:Worker=new Worker ();
   scholarLevel!:string;
+  scholarship:Scholarship=new Scholarship();
   criteria:string="";
-  public workers!: Worker[];
+  workers
   activeFilter:boolean=false;
   min:number=0;
   max:number=100;
+  page:Page;
+  pageNumber:number=0;
+  pageSize:number=50;
 
   listaSexo:String[]=["M","F"];
   listaDefensa:String[]=["ORAE","Imprescindible","BDP","Reserva","NoIncorporado","Ninguno"];
@@ -90,7 +95,8 @@ vaciarRace(){
 }
 
 vaciarSch(){
-  this.scholarLevel="";
+  delete this.workerExample.scholarShip
+  this.scholarLevel=null;
 
 }
 
@@ -114,18 +120,16 @@ filterByCriteria(){
 
 
 filtrar(){
+  this.workerExample.scholarShip=this.scholarship;
+  this.workerExample.scholarShip.scholarLevel=this.scholarLevel;
 console.log(this.workerExample)
-console.log(this.scholarLevel)
-this.filters.filterByExample(this.workerExample,this.scholarLevel,this.min,this.max).subscribe(data=>{this.workers=data})
+
+this.filters.filterByExample(this.workerExample,this.min,this.max).subscribe(data=>{this.workers=data})
 }
 
 
 vaciar(){
- /* let currentUrl = this.route.url;
-      this.route.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.route.onSameUrlNavigation = 'reload';
-      this.route.navigate([currentUrl]);
-      this.activeFilter=true;*/
+
 
 
         delete this.workerExample.department
@@ -138,7 +142,8 @@ vaciar(){
         delete this.workerExample.contractType
         delete this.workerExample.race
         delete this.workerExample.active
-        this.scholarLevel="";
+        delete this.workerExample.scholarShip
+        this.scholarLevel=null;
         this.min=0;
         this.max=100;
 
@@ -155,8 +160,11 @@ showFilters1(){
 
 private getall(){
 
-  this.plantS.getWorkersList().subscribe(data=> {this.workers=data});
+  this.plantS.getWorkersList(this.pageNumber,this.pageSize).subscribe(data=> {this.page=data
+  this.workers=this.page.content
+  });
   this.createWorkerService.getAllDepartment().subscribe(data=>{this.ListaDepartamentos=data})
+  
 
   }
 
@@ -181,6 +189,22 @@ goToWorkerDetail(id:Number){
   this.route.navigate(["dashboard/worker-detail",id]);
   }
 
+  goToPage(pageNumberNew:number){
+   this.pageNumber=pageNumberNew;
+   this.getall();
 
+  }
+
+  goToPageNext(){
+    if(this.pageNumber<this.page.totalPages-1){
+    this.pageNumber++;
+    this.getall();}
+ 
+   }
+   goToPagePrevious(){
+    this.pageNumber--;
+    this.getall();
+ 
+   }
 
 }

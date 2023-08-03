@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Position } from '../models/position';
+import { Statics } from '../statics';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class CargoService {
 
   constructor(private httpc:HttpClient) { }
 
-  basicUrl:String="http://localhost:8092/api/v1/position/all"
-  createUrl:String="http://localhost:8092/api/v1/position/create"
-  updateUrl:String="http://localhost:8092/api/v1/position/update"
-  findUrl:String="http://localhost:8092/api/v1/position/findById"
-  deleteUrl:String="http://localhost:8092/api/v1/position/delete"
+  basicUrl:String=Statics.BaseUrl+"position/all"
+  createUrl:String=Statics.BaseUrl+"position/create"
+  updateUrl:String=Statics.BaseUrl+"position/update"
+  findUrl:String=Statics.BaseUrl+"position/findById"
+  deleteUrl:String=Statics.BaseUrl+"position/delete"
 
 
   getAll():Observable<Position []>{

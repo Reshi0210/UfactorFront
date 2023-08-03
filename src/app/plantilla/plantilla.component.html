@@ -27,6 +27,10 @@
 
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
 <!----------------------------------------------------------Primera----Columna---Filtros------------------------------------------------------------------------------------------------->
 <div *ngIf="activeFilter" class="container-fluid">
   <form>
@@ -318,13 +322,14 @@
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
         <th scope="col">Raza</th>
         <th scope="col">Sexo</th>
         <th scope="col">No.Exp</th>
         <th scope="col">Tipo de Contrato</th>
         <th scope="col">lugar en la defensa</th>
-        <th scope="col">organos</th>
-        <th scope="col">escolaridad</th>
+        <th scope="col">Nivel Escolar</th>
+        <th scope="col">Especialidad</th>
         <th scope="col">cargo</th>
         <th scope="col">Grupo Escala</th>
         <th scope="col">Departamento</th>
@@ -340,22 +345,14 @@
         <td scope="col">{{ worker.firstName }}</td>
         <td scope="col">{{ worker.secondName }}</td>
         <td scope="col">{{ worker.lastName }}</td>
+        <td scope="col">{{ worker.age }}</td>
         <td scope="col">{{ worker.race }}</td>
         <td scope="col">{{ worker.sex }}</td>
         <td scope="col">{{ worker.expedientNumber }}</td>
         <td scope="col">{{ worker.contractType }}</td>
         <td scope="col">{{ worker.defensePlace }}</td>
-        <td scope="col">
-          <p *ngFor="let political of worker.politiclist">
-            {{ political.organ }}
-          </p>
-        </td>
-        <td scope="col">
-          <p *ngFor="let scholar of worker.scholarShiplist">
-            {{ scholar.scholarName }}<br />
-            {{ scholar.scholarLevel }}
-          </p>
-        </td>
+        <td scope="col">{{ worker.scholarShip?.scholarLevel }}</td>
+        <td scope="col">{{ worker.scholarShip?.scholarName }}</td>
         <td scope="col">{{ worker.position?.positionName }}</td>
         <td scope="col">{{ worker.position?.scaleGroup?.scale }}</td>
         <td scope="col">{{ worker.department?.departamentName }}</td>
@@ -382,5 +379,24 @@
       </tr>
     </tbody>
   </table>
+
+  <br>
+  <br>
+
+  <div class="position-relative">
+   <div  class="position-absolute top-50 start-50 translate-middle">
+    <nav aria-label="Page navigation example">
+     <ul class="pagination">
+       <li class="page-item" class="page-link"  aria-label="Previous" (click)="goToPagePrevious()">
+         <span aria-hidden="true" >&laquo;</span> </li>
+       <li (click)="goToPage(indice)" *ngFor="let item of [].constructor(page.totalPages),let indice=index" class="page-item" class="page-link"> {{indice}}</li  >
+      
+       <li class="page-item" class="page-link" href="" aria-label="Next" (click)="goToPageNext()">
+         
+          <span aria-hidden="true" >&raquo;</span></li>
+    </ul>
+  </nav>
+</div>
+</div>
 </div>
 

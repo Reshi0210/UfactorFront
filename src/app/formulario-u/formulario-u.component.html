@@ -116,19 +116,13 @@
       </mat-form-field>
       </div>
 
-      <div class="row">
-      <label >I.politicas</label>
-      <mat-form-field appearance="fill">
-      <mat-select  lass="form-select" name="selectpol" [(ngModel)]="worker.politiclist" multiple="multiple">
-      <mat-option [value]="item" *ngFor="let item of ListaPolitic">{{item.organ}}</mat-option>
-      </mat-select>
-      </mat-form-field>
-      </div>
+      
 
         <div class="row">
-        <label >Escolaridades:</label>
+        <label >Escolaridad:</label>
         <mat-form-field appearance="fill">
-        <mat-select  name="selectes" [(ngModel)]="worker.scholarShiplist" multiple="multiple">
+        <mat-select  name="selectes" [(ngModel)]="worker.scholarShip" (click)="getScholar()">
+          <mat-option [value]="worker.scholarShip">{{worker.scholarShip?.scholarName}}</mat-option>
         <mat-option  [value]="item" *ngFor="let item of ListaScholar">{{item.scholarName}}</mat-option>
         </mat-select>
         </mat-form-field>

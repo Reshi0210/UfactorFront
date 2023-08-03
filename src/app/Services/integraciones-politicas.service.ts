@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PoliticIntegration } from '../models/politic-integration';
+import { Statics } from '../statics';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class IntegracionesPoliticasService {
 
   constructor(private httpc:HttpClient) { }
 
-  basicUrl:String="http://localhost:8092/api/v1/politic/all"
-  createUrl:String="http://localhost:8092/api/v1/politic/create"
-  updateUrl:String="http://localhost:8092/api/v1/politic/update"
-  findUrl:String="http://localhost:8092/api/v1/politic/findById"
-  deleteUrl:String="http://localhost:8092/api/v1/politic/delete"
+  basicUrl:String=Statics.BaseUrl+"politic/all"
+  createUrl:String=Statics.BaseUrl+"politic/create"
+  updateUrl:String=Statics.BaseUrl+"politic/update"
+  findUrl:String=Statics.BaseUrl+"politic/findById"
+  deleteUrl:String=Statics.BaseUrl+"politic/delete"
 
 
   getAll():Observable<PoliticIntegration []>{

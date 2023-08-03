@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScaleGroup } from '../models/scale-group';
+import { Statics } from '../statics';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class GrupoEscalaService {
 
   constructor(private httpc:HttpClient) { }
 
-  basicUrl:String="http://localhost:8092/api/v1/scaleGroup/all"
-  createUrl:String="http://localhost:8092/api/v1/scaleGroup/create"
-  updateUrl:String="http://localhost:8092/api/v1/scaleGroup/update"
-  findUrl:String="http://localhost:8092/api/v1/scaleGroup/findById"
-  deleteUrl:String="http://localhost:8092/api/v1/scaleGroup/delete"
+  basicUrl:String=Statics.BaseUrl+"scaleGroup/all"
+  createUrl:String=Statics.BaseUrl+"scaleGroup/create"
+  updateUrl:String=Statics.BaseUrl+"scaleGroup/update"
+  findUrl:String=Statics.BaseUrl+"scaleGroup/findById"
+  deleteUrl:String=Statics.BaseUrl+"scaleGroup/delete"
 
 
   getAll():Observable<ScaleGroup []>{

@@ -68,11 +68,9 @@ export class WorkerDetailReportComponent implements OnInit {
       result+="Raza:"+this.workerInput.race+" \n";
       result+="Lugar Defensa:"+this.workerInput.defensePlace+" \n\n";
       result+="Integraciones politicas:\n"
-      this.workerInput.politiclist.forEach(p =>result+="-"+p.organ+"\n")
-      result+="\n"
-      result+="Escolaridades:\n"
-      this.workerInput.scholarShiplist.forEach(s=>result+="-"+s.scholarName+":"+s.scholarLevel+"\n")
-      result+="\n"
+      result+="Cargo:"+this.workerInput.scholarShip.scholarLevel+" \n";
+      result+="Cargo:"+this.workerInput.scholarShip.scholarName+" \n";
+      
       result+="Cargo:"+this.workerInput.position.positionName+" \n";
       result+="Grupo Escala:"+this.workerInput.position.scaleGroup.scale+" \n";
       result+="Departamento:"+this.workerInput.department.departamentName+" \n";

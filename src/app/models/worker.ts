@@ -9,6 +9,7 @@ export class Worker {
   firstName?:String;
   secondName?:String;
   lastName?:String;
+  age?:Number;
   race?:String;
   sex?:String;
   expedientNumber?:Number;
@@ -16,7 +17,7 @@ export class Worker {
   contractType?:String;
   defensePlace?:String;
   politiclist?:PoliticIntegration[];
-  scholarShiplist?:Scholarship[];
+  scholarShip?:Scholarship;
   position?:Position
   department?:Department;
 }

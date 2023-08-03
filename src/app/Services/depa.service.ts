@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Department } from '../models/department';
+import { Statics } from '../statics';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class DepaService {
 
   constructor(private httpc:HttpClient) { }
 
-  basicUrl:String="http://localhost:8092/api/v1/department/all"
-  createUrl:String="http://localhost:8092/api/v1/department/create"
-  updateUrl:String="http://localhost:8092/api/v1/department/update"
-  findUrl:String="http://localhost:8092/api/v1/department/findById"
-  deleteUrl:String="http://localhost:8092/api/v1/department/delete"
+  basicUrl:String=Statics.BaseUrl+"department/all"
+  createUrl:String=Statics.BaseUrl+"department/create"
+  updateUrl:String=Statics.BaseUrl+"department/update"
+  findUrl:String=Statics.BaseUrl+"department/findById"
+  deleteUrl:String=Statics.BaseUrl+"department/delete"
 
 
   getAllDepas():Observable<Department []>{

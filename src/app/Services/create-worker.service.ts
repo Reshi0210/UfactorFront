@@ -6,18 +6,19 @@ import { Position } from '../models/position';
 import { PoliticIntegration } from '../models/politic-integration';
 import { Scholarship } from '../models/scholarship';
 import { Worker } from '../models/worker';
+import { Statics } from '../statics';
 @Injectable({
   providedIn: 'root'
 })
 export class CreateWorkerService {
 
-  allDepasUrl:String="http://localhost:8092/api/v1/department/all"
-  allposUrl:String="http://localhost:8092/api/v1/position/all"
-  allpolUrl:String="http://localhost:8092/api/v1/politic/all"
-  allscholUrl:String="http://localhost:8092/api/v1/scholar/all"
-  createUrl:String="http://localhost:8092/api/v1/create"
-  findByidUrl:String="http://localhost:8092/api/v1/findById"
-  updateUrl:String="http://localhost:8092/api/v1/update"
+  allDepasUrl:String=Statics.BaseUrl+"department/all"
+  allposUrl:String=Statics.BaseUrl+"position/all"
+  allpolUrl:String=Statics.BaseUrl+"politic/all"
+  allscholUrl:String=Statics.BaseUrl+"scholar/all"
+  createUrl:String=Statics.BaseUrl+"create"
+  findByidUrl:String=Statics.BaseUrl+"findById"
+  updateUrl:String=Statics.BaseUrl+"update"
 
   constructor(private httpc:HttpClient) { }
 

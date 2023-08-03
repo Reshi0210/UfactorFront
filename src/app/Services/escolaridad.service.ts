@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Scholarship } from '../models/scholarship';
+import { Statics } from '../statics';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,11 @@ export class EscolaridadService {
 
   constructor(private httpc:HttpClient) { }
 
-  basicUrl:String="http://localhost:8092/api/v1/scholar/all"
-  createUrl:String="http://localhost:8092/api/v1/scholar/create"
-  updateUrl:String="http://localhost:8092/api/v1/scholar/update"
-  findUrl:String="http://localhost:8092/api/v1/scholar/findById"
-  deleteUrl:String="http://localhost:8092/api/v1/scholar/delete"
+  basicUrl:String=Statics.BaseUrl+"scholar/all"
+  createUrl:String=Statics.BaseUrl+"scholar/create"
+  updateUrl:String=Statics.BaseUrl+"scholar/update"
+  findUrl:String=Statics.BaseUrl+"scholar/findById"
+  deleteUrl:String=Statics.BaseUrl+"scholar/delete"
 
 
   getAll():Observable<Scholarship []>{

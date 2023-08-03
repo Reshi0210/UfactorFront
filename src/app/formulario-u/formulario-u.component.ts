@@ -18,7 +18,7 @@ export class FormularioUComponent implements OnInit {
     this.getfirst();
     this.getDepa();
     this.getAll();
-    this.getAll();
+    
   }
   worker: Worker = new Worker();
   id!: number;
@@ -93,13 +93,28 @@ export class FormularioUComponent implements OnInit {
     });
   }
 
+  getScholar() {
+    this.createWorkerService.getAllScholars().subscribe((data) => {
+      this.ListaScholar = data;
+    
+
+      this.ListaScholar.forEach((p) => {
+        if (p.scholarName == this.worker.scholarShip.scholarName) {
+          var i = this.ListaScholar.indexOf(p);
+          this.ListaScholar.splice(i, 1);
+        }
+      });
+    });
+    
+  }
+
   getAll() {
     this.createWorkerService.getAllPolitics().subscribe((data) => {
       this.ListaPolitic = data;
     });
     this.createWorkerService.getAllScholars().subscribe((data) => {
       this.ListaScholar = data;
-    });
+   });
   }
 
   saveNewWorker() {
