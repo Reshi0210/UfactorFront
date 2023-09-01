@@ -1,3 +1,4 @@
+import { Adress } from "./adress";
 import { Department } from "./department";
 import { PoliticIntegration } from "./politic-integration";
 import { Position } from "./position";
@@ -20,4 +21,5 @@ export class Worker {
   scholarShip?:Scholarship;
   position?:Position
   department?:Department;
+  adress?:Adress;
 }

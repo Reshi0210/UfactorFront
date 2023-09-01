@@ -145,6 +145,61 @@
 
       </div>
 <br>
+<!------------------------------------------------------------------Direccion---------------------------------------------------------------------------------------------->
+<div>
+<div class="row">
+  <label >Provincia:</label>
+  <mat-form-field appearance="fill" >
+  <mat-select required name="selectprov" [(ngModel)]="province" (focusout)="getAllMun()">
+  <mat-option [value]="item" *ngFor="let item of ListaProvincia">{{item.name
+    }}</mat-option>
+  </mat-select>
+  <mat-error>El campo es requerido</mat-error>
+  </mat-form-field>
+  </div>
+
+
+  <div class="row">
+    <label >Municipio:</label>
+    <mat-form-field appearance="fill" >
+    <mat-select required name="selectmun" [(ngModel)]="municipality" >
+    <mat-option [value]="item" *ngFor="let item of ListaMunicipios">{{item.name
+      }}</mat-option>
+    </mat-select>
+    <mat-error>El campo es requerido</mat-error>
+    </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-label>Calle:</mat-label>
+      <mat-form-field appearance="fill" >
+      <input matInput  type="text"   name="calle" [(ngModel)]="street" required #valid6="ngModel">
+      <mat-error *ngIf="valid6.invalid">El campo es requerido</mat-error>
+    </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-label>Entrecalles:</mat-label>
+        <mat-form-field appearance="fill" >
+        <input matInput  type="text"   name="ave" [(ngModel)]="avenue" required #valid7="ngModel">
+        <mat-error *ngIf="valid7.invalid">El campo es requerido</mat-error>
+      </mat-form-field>
+        </div>
+
+        <div class="row">
+          <mat-label>Detalles:</mat-label>
+          <mat-form-field appearance="fill" >
+          <input matInput  type="text"   name="place" [(ngModel)]="numberOrPlace" required #valid7="ngModel">
+          <mat-error *ngIf="valid7.invalid">El campo es requerido</mat-error>
+        </mat-form-field>
+          </div>
+
+    
+
+</div>
+
+<!------------------------------------------------------------------Direccion---------------------------------------------------------------------------------------------->
+
 <div >
 <button class="btn btn-success" type="submit">Agregar</button>
 </div>

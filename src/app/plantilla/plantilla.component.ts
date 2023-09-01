@@ -122,7 +122,9 @@ filterByCriteria(){
 filtrar(){
   this.workerExample.scholarShip=this.scholarship;
   this.workerExample.scholarShip.scholarLevel=this.scholarLevel;
-console.log(this.workerExample)
+  console.log(this.workerExample);
+
+
 
 this.filters.filterByExample(this.workerExample,this.min,this.max).subscribe(data=>{this.workers=data})
 }

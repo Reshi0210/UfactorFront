@@ -7,6 +7,9 @@ import { Scholarship } from '../models/scholarship';
 import { Worker } from '../models/worker';
 import { CreateWorkerService } from '../Services/create-worker.service';
 import { FilterService } from '../Services/filter.service';
+import { Province } from '../models/province';
+import { Municipality } from '../models/municipality';
+import { Adress } from '../models/adress';
 
 @Component({
   selector: 'app-formulario-i',
@@ -18,6 +21,14 @@ export class FormularioIComponent implements OnInit {
  worker:Worker=new Worker ();
  workerCi!:Worker[];
  ciExist:boolean=false;
+ province:Province;
+ municipality:Municipality=new Municipality();
+ adress:Adress=new Adress();
+ street:String;
+ avenue:String;
+ numberOrPlace:String;
+
+ 
 
 
 
@@ -30,6 +41,8 @@ export class FormularioIComponent implements OnInit {
   ListaPositions!:Position[];
   ListaPolitic!:PoliticIntegration[];
   ListaScholar!:Scholarship[];
+  ListaProvincia!:Province[];
+  ListaMunicipios!:Municipality[];
 
   constructor(private createWorkerService:CreateWorkerService,private route:Router,private filterS:FilterService) { }
 
@@ -40,7 +53,7 @@ export class FormularioIComponent implements OnInit {
 
   onSubmit():void{
   if(this.workerCi.length==0){
-   this.saveNewWorker();
+  this.saveNewWorker();
   }
   else{
   alert("Este Carnet ya esta en uso")
@@ -53,11 +66,28 @@ export class FormularioIComponent implements OnInit {
   this.createWorkerService.getAllpositions().subscribe(data=>{this.ListaPositions=data})
   this.createWorkerService.getAllPolitics().subscribe(data=>{this.ListaPolitic=data})
   this.createWorkerService.getAllScholars().subscribe(data=>{this.ListaScholar=data})
+  this.createWorkerService.getAllProvinces().subscribe(data=>{this.ListaProvincia=data})
           }
+
+   getAllMun (){
+    this.createWorkerService.getAllMuniciplaities(this.province.id).subscribe(data=>{this.ListaMunicipios=data})
+
+   }      
 
    saveNewWorker()   {
     this.worker.active="active"
-  this.createWorkerService.createWorker(this.worker).subscribe(data=>{
+    this.worker.adress=this.adress;
+    this.worker.adress.municipality=this.municipality;
+    this.worker.adress.province=this.province;
+    this.worker.adress.street=this.street;
+    this.worker.adress.avenue=this.avenue;
+    this.worker.adress.numberOrPlace=this.numberOrPlace;
+    
+    
+
+    console.log(this.worker)
+
+ this.createWorkerService.createWorker(this.worker).subscribe(data=>{
      console.log(data);
      alert("empleado Creado con exito");
      this.goToPlantilla();

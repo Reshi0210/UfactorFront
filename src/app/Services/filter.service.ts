@@ -20,7 +20,7 @@ filterbyCriteriaUrl:String=Statics.BaseUrl+"filterByCriteria"
 filterByExample(workerExample:Worker,min:number,max:number):Observable<Worker[]>{
   const headers=new HttpHeaders({
     "min":min.toString(),
-    "max":min.toString(),
+    "max":max.toString(),
 })
 
 

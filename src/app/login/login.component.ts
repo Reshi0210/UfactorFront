@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
 
 this.logins.login(this.request).subscribe(data=>{console.log(data)
 
-  localStorage.setItem("token",data.authToken)
+  localStorage.setItem("token",data.authToken);
+  this.route.navigate(["/dashboard"]);
 },
 (error)=>{
   error.status==401? alert("Credenciales Incorrectas"):alert("Error")
@@ -37,7 +38,7 @@ this.logins.login(this.request).subscribe(data=>{console.log(data)
 
 })
 
-setTimeout(() => {this.route.navigate(["/dashboard"]);}, 300);
+
 
 
 
