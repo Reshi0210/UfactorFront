@@ -128,6 +128,63 @@
         </mat-form-field>
         </div>
 
+        <!------------------------------------------------------------------Direccion---------------------------------------------------------------------------------------------->
+<div>
+  <div class="row">
+    <label >Provincia:</label>
+    <mat-form-field appearance="fill" >
+    <mat-select required name="selectprov" [(ngModel)]="worker.adress.province" (focusout)="getAllMun()">
+    <mat-option [value]="worker.adress.province">{{worker.adress.province.name}}</mat-option>
+    <mat-option [value]="item" *ngFor="let item of ListaProvincia">{{item.name
+      }}</mat-option>
+    </mat-select>
+    <mat-error>El campo es requerido</mat-error>
+    </mat-form-field>
+    </div>
+  
+  
+    <div class="row">
+      <label >Municipio:</label>
+      <mat-form-field appearance="fill" >
+      <mat-select required name="selectmun" [(ngModel)]="worker.adress.municipality" >
+        <mat-option [value]="worker.adress.municipality">{{worker.adress.municipality.name}}</mat-option>
+      <mat-option [value]="item" *ngFor="let item of ListaMunicipios">{{item.name}}</mat-option>
+      </mat-select>
+      <mat-error>El campo es requerido</mat-error>
+      </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <mat-label>Calle:</mat-label>
+        <mat-form-field appearance="fill" >
+        <input matInput  type="text"   name="calle" [(ngModel)]="worker.adress.street" required #valid6="ngModel">
+        <mat-error *ngIf="valid6.invalid">El campo es requerido</mat-error>
+      </mat-form-field>
+        </div>
+  
+        <div class="row">
+          <mat-label>Entrecalles:</mat-label>
+          <mat-form-field appearance="fill" >
+          <input matInput  type="text"   name="ave" [(ngModel)]="worker.adress.avenue" required #valid7="ngModel">
+          <mat-error *ngIf="valid7.invalid">El campo es requerido</mat-error>
+        </mat-form-field>
+          </div>
+  
+          <div class="row">
+            <mat-label>Detalles:</mat-label>
+            <mat-form-field appearance="fill" >
+            <input matInput  type="text"   name="place" [(ngModel)]="worker.adress.numberOrPlace" required #valid7="ngModel">
+            <mat-error *ngIf="valid7.invalid">El campo es requerido</mat-error>
+          </mat-form-field>
+            </div>
+  
+      
+  
+  </div>
+  
+  <!------------------------------------------------------------------Direccion---------------------------------------------------------------------------------------------->
+  
+
       </div>
   <br>
   <div >

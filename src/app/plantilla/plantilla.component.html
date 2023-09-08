@@ -46,7 +46,7 @@
               name="name"
               [(ngModel)]="workerExample.firstName"
             />
-            <button class="btn btn-warning" (click)="vaciarName()">
+            <button class="btn btn-outline-primary" (click)="vaciarName()">
               Vaciar
             </button>
           </div>
@@ -67,7 +67,7 @@
                 {{ item }}
               </option>
             </select>
-            <button class="btn btn-warning" (click)="vaciarRace()">
+            <button class="btn btn-outline-primary" (click)="vaciarRace()">
               Vaciar
             </button>
           </div>
@@ -87,7 +87,7 @@
                 {{ item }}
               </option>
             </select>
-            <button class="btn btn-warning" (click)="vaciarSex()">
+            <button class="btn btn-outline-primary" (click)="vaciarSex()">
               Vaciar
             </button>
           </div>
@@ -107,7 +107,7 @@
               name="sname"
               [(ngModel)]="workerExample.secondName"
             />
-            <button class="btn btn-warning" (click)="vaciarSName()">
+            <button class="btn btn-outline-primary" (click)="vaciarSName()">
               Vaciar
             </button>
           </div>
@@ -126,7 +126,7 @@
                 {{ item }}
               </option>
             </select>
-            <button class="btn btn-warning" (click)="vaciarCon()">
+            <button class="btn btn-outline-primary" (click)="vaciarCon()">
               Vaciar
             </button>
           </div>
@@ -146,7 +146,7 @@
                 {{ item }}
               </option>
             </select>
-            <button class="btn btn-warning" (click)="vaciarDef()">
+            <button class="btn btn-outline-primary" (click)="vaciarDef()">
               Vaciar
             </button>
           </div>
@@ -166,7 +166,7 @@
               name="lname"
               [(ngModel)]="workerExample.lastName"
             />
-            <button class="btn btn-warning" (click)="vaciarlName()">
+            <button class="btn btn-outline-primary" (click)="vaciarlName()">
               Vaciar
             </button>
           </div>
@@ -182,7 +182,7 @@
               name="expN"
               [(ngModel)]="workerExample.expedientNumber"
               type="text"
-            /><button class="btn btn-warning" (click)="vaciarExp()">
+            /><button class="btn btn-outline-primary" (click)="vaciarExp()">
               Vaciar
             </button>
           </div>
@@ -202,7 +202,7 @@
                 {{ item.departamentName }}
               </option>
             </select>
-            <button class="btn btn btn-warning" (click)="vaciarDepa()">
+            <button class="btn btn-outline-primary" (click)="vaciarDepa()">
               vaciar
             </button>
           </div>
@@ -223,7 +223,7 @@
                 {{ item }}
               </option>
             </select>
-            <button class="btn btn-warning" (click)="vaciarSch()">
+            <button class="btn btn-outline-primary" (click)="vaciarSch()">
               Vaciar
             </button>
           </div>
@@ -245,7 +245,7 @@
             {{ item }}
           </option>
           </select>
-          <button class="btn btn-warning" (click)="vaciarActive()">
+          <button class="btn btn-outline-primary" (click)="vaciarActive()">
             Vaciar
           </button>
         </div>
@@ -271,7 +271,7 @@
             [(ngModel)]="max"
             type="number"
           />
-            <button class="btn btn-warning" (click)="vaciarAge()">
+            <button class="btn btn-outline-primary" (click)="vaciarAge()">
               Vaciar
             </button>
           </div>
@@ -290,10 +290,10 @@
 <br>
 
 <div class="btn-group">
-  <button type="submit" class="btn btn-success" (click)="filtrar()">
+  <button type="submit" class="btn btn-primary" (click)="filtrar()">
     Filtrar
   </button>
-  <button (click)="vaciar()" class="btn btn-danger">vaciar</button>
+  <button (click)="vaciar()" class="btn btn-outline-primary">vaciar</button>
 </div>
 
 
@@ -359,13 +359,13 @@
         <td scope="col">{{ worker.active}} </td>
 
         <td scope="col">
-        <button class="btn btn-info" (click)="goToWorkerDetail(worker.id)">
+        <button class="btn btn-primary" (click)="goToWorkerDetail(worker.id)">
           <mat-icon>description</mat-icon>
         </button>
         </td>
 
         <td scope="col">
-          <button class="btn btn-info" (click)="updateWorker(worker.id)">
+          <button class="btn btn-primary" (click)="updateWorker(worker.id)">
             <mat-icon>loop</mat-icon>
           </button>
         </td>

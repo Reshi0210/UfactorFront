@@ -1,4 +1,5 @@
 import { Adress } from "./adress";
+import { CareerPlan } from "./career-plan";
 import { Department } from "./department";
 import { PoliticIntegration } from "./politic-integration";
 import { Position } from "./position";
@@ -22,4 +23,5 @@ export class Worker {
   position?:Position
   department?:Department;
   adress?:Adress;
+  careerPlan:CareerPlan
 }

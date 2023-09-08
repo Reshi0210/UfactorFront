@@ -24,6 +24,11 @@ export class WorkerDetailComponent implements OnInit, AfterContentInit,DoCheck{
     id!: number;
     HtmlElementToReport:HTMLElement;
     WorkerToReport:Worker;
+    ListaEscolaridades:Scholarship[];
+    any:any;
+    anyL:any[];
+  
+    nada(){};
 
 
   ngOnInit(): void {
@@ -45,4 +50,6 @@ export class WorkerDetailComponent implements OnInit, AfterContentInit,DoCheck{
     });
 
 }
+
+
 }

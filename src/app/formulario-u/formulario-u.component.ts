@@ -6,6 +6,8 @@ import { Position } from '../models/position';
 import { Scholarship } from '../models/scholarship';
 import { Worker } from '../models/worker';
 import { CreateWorkerService } from '../Services/create-worker.service';
+import { Province } from '../models/province';
+import { Municipality } from '../models/municipality';
 
 @Component({
   selector: 'app-formulario-u',
@@ -52,6 +54,12 @@ export class FormularioUComponent implements OnInit {
   ListaPositions!: Position[];
   ListaPolitic!: PoliticIntegration[];
   ListaScholar!: Scholarship[];
+  ListaProvincia!:Province[];
+  ListaMunicipios!:Municipality[];
+
+
+  province:Province;
+  municipality:Municipality=new Municipality();
 
   constructor(
     private createWorkerService: CreateWorkerService,
@@ -115,6 +123,9 @@ export class FormularioUComponent implements OnInit {
     this.createWorkerService.getAllScholars().subscribe((data) => {
       this.ListaScholar = data;
    });
+
+   this.createWorkerService.getAllScholars().subscribe(data=>{this.ListaScholar=data})
+  this.createWorkerService.getAllProvinces().subscribe(data=>{this.ListaProvincia=data})
   }
 
   saveNewWorker() {
@@ -130,4 +141,10 @@ export class FormularioUComponent implements OnInit {
   goToPlantilla() {
     this.route.navigate(['dashboard/plantilla']);
   }
+
+  getAllMun (){
+    this.createWorkerService.getAllMuniciplaities(this.worker.adress.province.id).subscribe(data=>{this.ListaMunicipios=data})
+
+   }    
+
 }

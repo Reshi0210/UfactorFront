@@ -25,14 +25,477 @@
       <h6 ><label ><b>Grupo Escala:</b></label>{{ worker.position?.scaleGroup?.scale }}</h6>
       <h6 ><label ><b>Departamento:</b></label>{{ worker.department?.departamentName }}</h6>
       <h6 ><label ><b>Alta/Baja:</b></label> {{ worker.active}} </h6>
-
-
-    </mat-card-content>
-    </mat-card>
-
-
+      <h6 ><label ><b>Direccion:</b></label> {{ worker.adress.province.name}},{{ worker.adress.municipality.name}},{{ worker.adress.street}}/{{ worker.adress.avenue}}/{{ worker.adress.numberOrPlace}}</h6>
+      </mat-card-content>
+      </mat-card>
   </div>
+      <br>
+      <br>
+      <br>
+<!----------------------------------------------------------Primera----FILA---PLAN------------------------------------------------------------------------------------------------->
+<div class="container">
+ 
+
+  <form>
+    <router-outlet></router-outlet>
+    <div class="row">
+     
+      <div class="col">
+        <h4>CALIFICACIÓN ALCANZADA</h4>
+        <br>
+        <div class="form-control">
+          <label for="MoE1">Doctorado:</label>
+          <div >
+            <mat-select
+            
+              name="MoE1"
+              [(ngModel)]="worker.careerPlan.doctorado"
+            > <mat-option selected [value]="worker.careerPlan.doctorado">{{worker.careerPlan.doctorado.scholarName}}</mat-option>
+              <mat-option [value]="item" *ngFor="let item of anyL">
+                {{ item }}
+              </mat-option>
+            </mat-select>
+           
+          </div>
+        </div>
+      </div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="col">
+  <h4>CALIFICACIÓN EN PROCESO</h4>
+<br>
+<div class="form-control">
+    <label for="MoE1">Doctorado:</label>
+    <div >
+      <mat-select
+      
+        name="MoE1"
+        [(ngModel)]="worker.careerPlan.doctorado"
+      > <mat-option selected [value]="worker.careerPlan.doctorado">{{worker.careerPlan.doctorado.scholarName}}</mat-option>
+        <mat-option [value]="item" *ngFor="let item of anyL">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+     
+    </div>
+  </div>
+</div>
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+ 
+<div class="col">
+  <h4>PLAN DE CARRERA</h4>
+  <br>
+ <div class="form-control">
+    <label for="MoE1">Doctorado:</label>
+    <div >
+      <mat-select
+      
+        name="MoE1"
+        [(ngModel)]="worker.careerPlan.doctorado"
+      > <mat-option selected [value]="worker.careerPlan.doctorado">{{worker.careerPlan.doctorado.scholarName}}</mat-option>
+        <mat-option [value]="item" *ngFor="let item of anyL">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+     
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+  <!-------------------------------------------------------------2dafila-------------------------------------------------------------------------------------->
+  <div class="row">
+    <div class="col">
+      <div class="form-control">
+        <label for="p1">Master o Especialidad</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="P1"
+            [(ngModel)]="any"
+          >
+            <option [value]="item" *ngFor="let item of anyL">
+              {{ item }}
+            </option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="col">
+    <div class="form-control">
+      <label for="p1">Master o Especialidad</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          name="P1"
+          [(ngModel)]="any"
+        >
+          <option [value]="item" *ngFor="let item of anyL">
+            {{ item }}
+          </option>
+        </select>
+        
+      </div>
+    </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <div class="col">
+  <div class="form-control">
+    <label for="p1">Master o Especialidad</label>
+    <div class="input-group mb-3">
+      <select
+        class="form-select"
+        name="P1"
+        [(ngModel)]="any"
+      >
+        <option [value]="item" *ngFor="let item of anyL">
+          {{ item }}
+        </option>
+      </select>
+      
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+  <!-------------------------------------------------------------3rafila-------------------------------------------------------------------------------------->
+  <div class="row">
+<div class="col">
+  <div class="form-control">
+    <label for="p1">Postgrado 1</label>
+    <div class="input-group mb-3">
+      <select
+        class="form-select"
+        name="P1"
+        [(ngModel)]="any"
+      >
+        <option [value]="item" *ngFor="let item of anyL">
+          {{ item }}
+        </option>
+      </select>
+      
+    </div>
+  </div>
+</div>
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <div class="col">
+    <div class="form-control">
+      <label for="p1">Postgrado 1</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          name="P1"
+          [(ngModel)]="any"
+        >
+          <option [value]="item" *ngFor="let item of anyL">
+            {{ item }}
+          </option>
+        </select>
+        
+      </div>
+    </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <div class="col">
+    <div class="form-control">
+      <label for="p1">Postgrado 2</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          name="P1"
+          [(ngModel)]="any"
+        >
+          <option [value]="item" *ngFor="let item of anyL">
+            {{ item }}
+          </option>
+        </select>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+ <!-------------------------------------------------------------3rafila-------------------------------------------------------------------------------------->
+ <div class="row">
+  <div class="col">
+    <div class="form-control">
+      <label for="p1">Postgrado 2</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          name="P1"
+          [(ngModel)]="any"
+        >
+          <option [value]="item" *ngFor="let item of anyL">
+            {{ item }}
+          </option>
+        </select>
+        
+      </div>
+    </div>
+  </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="col">
+      <div class="form-control">
+        <label for="p1">Postgrado 2</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="P1"
+            [(ngModel)]="any"
+          >
+            <option [value]="item" *ngFor="let item of anyL">
+              {{ item }}
+            </option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="col">
+      <div class="form-control">
+        <label for="p1">Postgrado 2</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="P1"
+            [(ngModel)]="any"
+          >
+            <option [value]="item" *ngFor="let item of anyL">
+              {{ item }}
+            </option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+<!-------------------------------------------------------------4tafila-------------------------------------------------------------------------------------->
+<div class="row">
+<div class="col">
+  <div class="form-control">
+    <label for="fp">F Piramidal</label>
+    <div class="input-group mb-3">
+      <select
+        class="form-select"
+        name="fp"
+        [(ngModel)]="any"
+      >
+        <option [value]="item" *ngFor="let item of anyL">
+          {{ item }}
+        </option>
+      </select>
+      
+    </div>
+  </div>
+</div>
+
+ <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+ <div class="col">
+  <div class="form-control">
+    <label for="fp">F Piramidal</label>
+    <div class="input-group mb-3">
+      <select
+        class="form-select"
+        name="fp"
+        [(ngModel)]="any"
+      >
+        <option [value]="item" *ngFor="let item of anyL">
+          {{ item }}
+        </option>
+      </select>
+      
+    </div>
+  </div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="col">
+  <div class="form-control">
+    <label for="fp">F Piramidal</label>
+    <div class="input-group mb-3">
+      <select
+        class="form-select"
+        name="fp"
+        [(ngModel)]="any"
+      >
+        <option [value]="item" *ngFor="let item of anyL">
+          {{ item }}
+        </option>
+      </select>
+      
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<!-------------------------------------------------------------5tafila-------------------------------------------------------------------------------------->
+<div class="row">
+  <div class="col">
+    <div class="form-control">
+      <label for="fp">Idioma optimo</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          name="fp"
+          [(ngModel)]="any"
+        >
+          <option [value]="item" *ngFor="let item of anyL">
+            {{ item }}
+          </option>
+        </select>
+        
+      </div>
+    </div>
+  </div>
+  
+   <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+   <div class="col">
+    <div class="form-control">
+      <label for="fp">Idioma optimo</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          name="fp"
+          [(ngModel)]="any"
+        >
+          <option [value]="item" *ngFor="let item of anyL">
+            {{ item }}
+          </option>
+        </select>
+        
+      </div>
+    </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <div class="col">
+    <div class="form-control">
+      <label for="fp">Idioma optimo</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          name="fp"
+          [(ngModel)]="any"
+        >
+          <option [value]="item" *ngFor="let item of anyL">
+            {{ item }}
+          </option>
+        </select>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+  <br>
+<br>
+
+  <!-----------------------------------------------------------6tafila-------------------------------------------------------------------------------------->
+  <div class="row">
+    <div class="col">
+      <div class="form-control">
+        <label for="fp">Idioma elemental</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="fp"
+            [(ngModel)]="any"
+          >
+            <option [value]="item" *ngFor="let item of anyL">
+              {{ item }}
+            </option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+    
+     <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+     <div class="col">
+      <div class="form-control">
+        <label for="fp">Idioma elemental</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="fp"
+            [(ngModel)]="any"
+          >
+            <option [value]="item" *ngFor="let item of anyL">
+              {{ item }}
+            </option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="col">
+      <div class="form-control">
+        <label for="fp">Idioma elemental</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="fp"
+            [(ngModel)]="any"
+          >
+            <option [value]="item" *ngFor="let item of anyL">
+              {{ item }}
+            </option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+<!-----------------------------------------------------------------------botones------------------------------------------------------------------->
+<div class="row">
+  <div class="col">
+    <br>
+      <div class="position-relative">
+
+       <div class="btn-group">
+      <button type="submit" class="btn btn-secondary" (click)="nada()">
+        Editar
+      </button>
+      <button (click)="nada()" class="btn btn-primary">Guardar</button>
+    </div>
+    </div>
+  </div> 
+    
+  <div class="col">
+    <br>
+      <div class="position-relative">
+
+       <div class="btn-group">
+      <button type="submit" class="btn btn-secondary" (click)="nada()">
+        Editar
+      </button>
+      <button (click)="nada()" class="btn btn-primary">Guardar</button>
+    </div>
+    </div>
+  </div> 
 
 
+  <div class="col">
+    <br>
+      <div class="position-relative">
 
+       <div class="btn-group">
+      <button type="submit" class="btn btn-secondary" (click)="nada()">
+        Editar
+      </button>
+      <button (click)="nada()" class="btn btn-primary">Guardar</button>
+    </div>
+    </div>
+  </div> 
 
+</div> 
+  
