@@ -7,7 +7,7 @@ export class CareerPlan {
 
     doctorado:Scholarship;
 
-    MasterOespecialiad:Scholarship;
+    master:Scholarship;
 
     posgrado1:Scholarship;
 
@@ -15,9 +15,46 @@ export class CareerPlan {
 
    formacionPiramidal:Scholarship;
 
-   IdiomaOptimo:Scholarship;
+   idiomaOptimo:Scholarship;
 
-   preElementar:Scholarship;
+   idiomaelemental:Scholarship;
 
    acreditacion:Scholarship;
+
+
+   doctoradoP:Scholarship;
+
+   masterP:Scholarship;
+
+   posgrado1P:Scholarship;
+
+   posgrado2P:Scholarship;
+
+  formacionPiramidalP:Scholarship;
+
+  idiomaOptimoP:Scholarship;
+
+  idiomaelementalP:Scholarship;
+
+  acreditacionP:Scholarship;
+
+
+
+  doctoradoF:Scholarship;
+
+  masterF:Scholarship;
+
+  posgrado1F:Scholarship;
+
+  posgrado2F:Scholarship;
+
+ formacionPiramidalF:Scholarship;
+
+ idiomaOptimoF:Scholarship;
+
+ idiomaelementalF:Scholarship;
+
+ acreditacionF:Scholarship;
+
+
 }

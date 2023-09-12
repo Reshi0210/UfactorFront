@@ -6,6 +6,8 @@ import { Position } from '../models/position';
 import { Scholarship } from '../models/scholarship';
 import { Worker } from '../models/worker';
 import { CreateWorkerService } from '../Services/create-worker.service';
+import { EscolaridadService } from '../Services/escolaridad.service';
+import { STRING_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-worker-detail',
@@ -15,6 +17,7 @@ import { CreateWorkerService } from '../Services/create-worker.service';
 export class WorkerDetailComponent implements OnInit, AfterContentInit,DoCheck{
 
   constructor( private createWorkerService: CreateWorkerService,
+    private scholarS:EscolaridadService,
     private route: Router,
     private aroute: ActivatedRoute) { }
 
@@ -24,9 +27,10 @@ export class WorkerDetailComponent implements OnInit, AfterContentInit,DoCheck{
     id!: number;
     HtmlElementToReport:HTMLElement;
     WorkerToReport:Worker;
-    ListaEscolaridades:Scholarship[];
+    ListaScholar:Scholarship[];
     any:any;
     anyL:any[];
+    level:String;
   
     nada(){};
 
@@ -51,5 +55,44 @@ export class WorkerDetailComponent implements OnInit, AfterContentInit,DoCheck{
 
 }
 
+getDoctorados(){
+this.level="Doc";
+this.getScholarByLevel(this.level);
+
+}
+
+getMasters(){
+  this.level="Master";
+  this.getScholarByLevel(this.level);
+  
+  }
+
+getPostgrados(){
+    this.level="Postgrado";
+  this.getScholarByLevel(this.level);
+  }
+
+  getFormacionespiramidales(){
+    this.level="FPiramidal";
+  this.getScholarByLevel(this.level);
+
+  }
+  getIdiomas(){
+    this.level="Idioma";
+    this.getScholarByLevel(this.level);
+  }
+
+
+
+getScholarByLevel(level:String){
+this.scholarS.findByLevel(level).subscribe(data=>{this.ListaScholar=data})
+}
+
+save(){
+this.createWorkerService.createWorker(this.worker).subscribe(data=>{
+  console.log(data);
+  alert("Actualizado")
+  })
+}
 
 }

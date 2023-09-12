@@ -16,6 +16,7 @@ export class EscolaridadService {
   updateUrl:String=Statics.BaseUrl+"scholar/update"
   findUrl:String=Statics.BaseUrl+"scholar/findById"
   deleteUrl:String=Statics.BaseUrl+"scholar/delete"
+  finByleveldUrl:String=Statics.BaseUrl+"scholar/findByLevel"
 
 
   getAll():Observable<Scholarship []>{
@@ -33,6 +34,10 @@ export class EscolaridadService {
   }
   delete(id:Number):Observable<object>{
     return this.httpc.delete(`${this.deleteUrl}/${id}`)
+  }
+
+  findByLevel(level:String):Observable<Scholarship []>{
+    return this.httpc.get<Scholarship []>(`${this.finByleveldUrl}/${level}`);
   }
 
 }

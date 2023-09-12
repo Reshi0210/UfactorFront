@@ -21,7 +21,7 @@ export class UpdateEscolaridadComponent implements OnInit {
   scholar:Scholarship=new Scholarship();
 
 
-  scholarLevelList:string[]=["TecMedio","Univ","PreUniv","Noveno","Doc","Master"];
+  scholarLevelList:string[]=["TecMedio","Univ","PreUniv","Noveno","Doc","Master","Postgrado","Obrero","Idioma","FPiramidal","No_Procede"];
 
   onSubmit(){
     this.scholarS.update(this.id,this.scholar).subscribe(data=>{console.log(data)
