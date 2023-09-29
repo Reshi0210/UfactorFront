@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CalificadoresComponent } from './calificadores/calificadores.component';
 import { CargoComponent } from './cargo/cargo.component';
-import { ContratosComponent } from './contratos/contratos.component';
+
 import { CrearCargoComponent } from './crear-cargo/crear-cargo.component';
 import { CrearDepaComponent } from './crear-depa/crear-depa.component';
 import { CrearEscalaComponent } from './crear-escala/crear-escala.component';
@@ -27,6 +27,10 @@ import { UpdateEscalaComponent } from './update-escala/update-escala.component';
 import { UpdateEscolaridadComponent } from './update-escolaridad/update-escolaridad.component';
 import { UpdateIntegracionesPoliticasComponent } from './update-integraciones-politicas/update-integraciones-politicas.component';
 import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+
+
 
 const routes: Routes = [
 
@@ -38,7 +42,8 @@ const routes: Routes = [
   canActivateChild:[SecondGuard],
   children:[{ path:"plantilla",component:PlantillaComponent}
             ,{ path:"worker-detail/:id",component:WorkerDetailComponent}
-            ,{ path:"contratos",component:ContratosComponent }
+            ,{ path:"usuarios",component:UsuariosComponent }
+            ,{ path:"usuarios/create-user",component:CreateUserComponent }
             ,{path:"plantilla/formularioI",component:FormularioIComponent}
             ,{ path:"FormularioU/:id",component:FormularioUComponent}
             ,{path:"calificadores",component:CalificadoresComponent,

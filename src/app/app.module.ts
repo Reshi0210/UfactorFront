@@ -13,7 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import {MatTreeModule} from '@angular/material/tree';
 import { PlantillaComponent } from './plantilla/plantilla.component';
-import { ContratosComponent } from './contratos/contratos.component';
+
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -45,6 +45,9 @@ import { TestReportComponent } from './test-report/test-report.component';
 import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
 import {MatCardModule} from '@angular/material/card';
 import { WorkerDetailReportComponent } from './worker-detail-report/worker-detail-report.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+
 
 
 
@@ -54,7 +57,6 @@ import { WorkerDetailReportComponent } from './worker-detail-report/worker-detai
   declarations: [
     AppComponent,
     PlantillaComponent,
-    ContratosComponent,
     FormularioIComponent,
     FormularioUComponent,
     LoginComponent,
@@ -78,6 +80,9 @@ import { WorkerDetailReportComponent } from './worker-detail-report/worker-detai
     TestReportComponent,
     WorkerDetailComponent,
     WorkerDetailReportComponent,
+    UsuariosComponent,
+    CreateUserComponent,
+   
 
 
 

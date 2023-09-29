@@ -43,17 +43,22 @@
       <div class="col">
         <h4>CALIFICACIÓN ALCANZADA</h4>
         <br>
-        <div class="form-control">
-          <label for="d1">Doctorado:</label>
+        <div class="form-control" >
+          <label for="d1"><b>Doctorado:</b>   {{worker.careerPlan.doctorado.scholarName}}</label>
           <div >
             <mat-select 
+            [disabled]="editar1"
             (focus)="getDoctorados()"
               name="d1"
               [(ngModel)]="worker.careerPlan.doctorado"
-            > <mat-option selected [value]="worker.careerPlan.doctorado">{{worker.careerPlan.doctorado.scholarName}}</mat-option>
+              
+            >
+          
               <mat-option [value]="item" *ngFor="let item of  ListaScholar">
                 {{ item.scholarName }}
+              
               </mat-option>
+              
             </mat-select>
            
           </div>
@@ -65,13 +70,14 @@
   <h4>CALIFICACIÓN EN PROCESO</h4>
 <br>
 <div class="form-control">
-    <label for="d2">Doctorado:</label>
+  <label for="d1"><b>Doctorado:</b>   {{worker.careerPlan.doctoradoP.scholarName}}</label>
     <div >
       <mat-select
+      [disabled]="editar2"
       (focus)="getDoctorados()"
         name="d2"
         [(ngModel)]="worker.careerPlan.doctoradoP"
-      > <mat-option selected [value]="worker.careerPlan.doctoradoP">{{worker.careerPlan.doctoradoP.scholarName}}</mat-option>
+      > 
         <mat-option [value]="item" *ngFor="let item of  ListaScholar">
           {{ item.scholarName }}
         </mat-option>
@@ -87,13 +93,14 @@
   <h4>PLAN DE CARRERA</h4>
   <br>
  <div class="form-control">
-    <label for="d3">Doctorado:</label>
+  <label for="d1"><b>Doctorado:</b>   {{worker.careerPlan.doctoradoF.scholarName}}</label>
     <div >
       <mat-select
+      [disabled]="editar3"
       (focus)="getDoctorados()"
         name="d3"
         [(ngModel)]="worker.careerPlan.doctoradoF"
-      > <mat-option selected [value]="worker.careerPlan.doctoradoF">{{worker.careerPlan.doctoradoF.scholarName}}</mat-option>
+      > 
         <mat-option [value]="item" *ngFor="let item of  ListaScholar">
           {{ item.scholarName }}
         </mat-option>
@@ -112,13 +119,14 @@
       
       <br>
       <div class="form-control">
-        <label for="m1">Master:</label>
+        <label for="d1"><b>Master:</b>   {{worker.careerPlan.master.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar1"
           (focus)="getMasters()"
             name="master"
             [(ngModel)]="worker.careerPlan.master"
-          > <mat-option selected [value]="worker.careerPlan.master">{{worker.careerPlan.master.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -134,13 +142,14 @@
       
       <br>
       <div class="form-control">
-        <label for="m1">Master:</label>
+        <label for="d1"><b>Master:</b>   {{worker.careerPlan.masterP.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar2"
           (focus)="getMasters()"
             name="master2"
             [(ngModel)]="worker.careerPlan.masterP"
-          > <mat-option selected [value]="worker.careerPlan.masterP">{{worker.careerPlan.masterP.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -155,13 +164,14 @@
       
     <br>
     <div class="form-control">
-      <label for="m1">Master:</label>
+      <label for="d1"><b>Master:</b>   {{worker.careerPlan.masterP.scholarName}}</label>
       <div >
         <mat-select 
+        [disabled]="editar3"
         (focus)="getMasters()"
           name="master3"
           [(ngModel)]="worker.careerPlan.masterF"
-        > <mat-option selected [value]="worker.careerPlan.masterF">{{worker.careerPlan.masterF.scholarName}}</mat-option>
+        > 
           <mat-option [value]="item" *ngFor="let item of  ListaScholar">
             {{ item.scholarName }}
           </mat-option>
@@ -179,13 +189,14 @@
       
       <br>
       <div class="form-control">
-        <label for="p1">Postgrado1:</label>
+        <label for="d1"><b>Postgrado1:</b>   {{worker.careerPlan.posgrado1.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar1"
           (focus)="getPostgrados()"
             name="p1"
             [(ngModel)]="worker.careerPlan.posgrado1"
-          > <mat-option selected [value]="worker.careerPlan.posgrado1">{{worker.careerPlan.posgrado1.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -200,13 +211,14 @@
       
     <br>
     <div class="form-control">
-      <label for="p2">Postgrado1:</label>
+      <label for="d1"><b>Postgrado1:</b>   {{worker.careerPlan.posgrado1P.scholarName}}</label>
       <div >
         <mat-select 
+        [disabled]="editar2"
         (focus)="getPostgrados()"
           name="p2"
           [(ngModel)]="worker.careerPlan.posgrado1P"
-        > <mat-option selected [value]="worker.careerPlan.posgrado1P">{{worker.careerPlan.posgrado1P.scholarName}}</mat-option>
+        > 
           <mat-option [value]="item" *ngFor="let item of  ListaScholar">
             {{ item.scholarName }}
           </mat-option>
@@ -220,13 +232,14 @@
       
     <br>
     <div class="form-control">
-      <label for="p3">Postgrado1:</label>
+      <label for="d1"><b>Postgrado1:</b>   {{worker.careerPlan.posgrado1F.scholarName}}</label>
       <div >
         <mat-select 
+        [disabled]="editar3"
         (focus)="getPostgrados()"
           name="p3"
           [(ngModel)]="worker.careerPlan.posgrado1F"
-        > <mat-option selected [value]="worker.careerPlan.posgrado1F">{{worker.careerPlan.posgrado1F.scholarName}}</mat-option>
+        > 
           <mat-option [value]="item" *ngFor="let item of  ListaScholar">
             {{ item.scholarName }}
           </mat-option>
@@ -238,19 +251,20 @@
 </div>
 <br>
 <br>
- <!-------------------------------------------------------------3rafila-------------------------------------------------------------------------------------->
+ <!-------------------------------------------------------------4rafila-------------------------------------------------------------------------------------->
  <div class="row">
   <div class="col">
       
     <br>
     <div class="form-control">
-      <label for="p4">Postgrado2:</label>
+      <label for="d1"><b>Postgrado2:</b>   {{worker.careerPlan.posgrado2.scholarName}}</label>
       <div >
         <mat-select 
+        [disabled]="editar1"
         (focus)="getPostgrados()"
           name="p4"
           [(ngModel)]="worker.careerPlan.posgrado2"
-        > <mat-option selected [value]="worker.careerPlan.posgrado2">{{worker.careerPlan.posgrado2.scholarName}}</mat-option>
+        > 
           <mat-option [value]="item" *ngFor="let item of  ListaScholar">
             {{ item.scholarName }}
           </mat-option>
@@ -264,13 +278,14 @@
       
       <br>
       <div class="form-control">
-        <label for="p5">Postgrado2:</label>
+        <label for="d1"><b>Postgrado2:</b>   {{worker.careerPlan.posgrado2P.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar2"
           (focus)="getPostgrados()"
             name="p5"
             [(ngModel)]="worker.careerPlan.posgrado2P"
-          > <mat-option selected [value]="worker.careerPlan.posgrado2P">{{worker.careerPlan.posgrado2P.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -284,13 +299,14 @@
       
       <br>
       <div class="form-control">
-        <label for="p6">Postgrado2:</label>
+        <label for="d1"><b>Postgrado2:</b>   {{worker.careerPlan.posgrado2F.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar3"
           (focus)="getPostgrados()"
             name="p6"
             [(ngModel)]="worker.careerPlan.posgrado2F"
-          > <mat-option selected [value]="worker.careerPlan.posgrado2F">{{worker.careerPlan.posgrado2F.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -307,13 +323,14 @@
   <div class="col">
   <br>
   <div class="form-control">
-    <label for="f">F Piramidal:</label>
+    <label for="d1"><b>F piramidal</b>   {{worker.careerPlan.formacionPiramidal.scholarName}}</label>
     <div >
       <mat-select 
+      [disabled]="editar1"
       (focus)="getFormacionespiramidales()"
         name="f"
         [(ngModel)]="worker.careerPlan.formacionPiramidal"
-      > <mat-option selected [value]="worker.careerPlan.formacionPiramidal">{{worker.careerPlan.formacionPiramidal.scholarName}}</mat-option>
+      > 
         <mat-option [value]="item" *ngFor="let item of  ListaScholar">
           {{ item.scholarName }}
         </mat-option>
@@ -327,13 +344,14 @@
  <div class="col">
   <br>
   <div class="form-control">
-    <label for="f2">F Piramidal:</label>
+    <label for="d1"><b>F piramidal</b>   {{worker.careerPlan.formacionPiramidalP.scholarName}}</label>
     <div >
       <mat-select 
+      [disabled]="editar2"
       (focus)="getFormacionespiramidales()"
         name="f2"
         [(ngModel)]="worker.careerPlan.formacionPiramidalP"
-      > <mat-option selected [value]="worker.careerPlan.formacionPiramidalP">{{worker.careerPlan.formacionPiramidalP.scholarName}}</mat-option>
+      > 
         <mat-option [value]="item" *ngFor="let item of  ListaScholar">
           {{ item.scholarName }}
         </mat-option>
@@ -346,13 +364,14 @@
 <div class="col">
   <br>
   <div class="form-control">
-    <label for="f3">F Piramidal:</label>
+    <label for="d1"><b>F piramidal</b>   {{worker.careerPlan.formacionPiramidalF.scholarName}}</label>
     <div >
       <mat-select 
+      [disabled]="editar3"
       (focus)="getFormacionespiramidales()"
         name="f3"
         [(ngModel)]="worker.careerPlan.formacionPiramidalF"
-      > <mat-option selected [value]="worker.careerPlan.formacionPiramidalF">{{worker.careerPlan.formacionPiramidalF.scholarName}}</mat-option>
+      > 
         <mat-option [value]="item" *ngFor="let item of  ListaScholar">
           {{ item.scholarName }}
         </mat-option>
@@ -369,13 +388,14 @@
   <div class="col">
   <br>
   <div class="form-control">
-    <label for="I">idioma optimo:</label>
+    <label for="d1"><b>Idioma óptimo:</b>   {{worker.careerPlan.idiomaOptimo.scholarName}}</label>
     <div >
       <mat-select 
+      [disabled]="editar1"
       (focus)="getIdiomas()"
         name="I"
         [(ngModel)]="worker.careerPlan.idiomaOptimo"
-      > <mat-option selected [value]="worker.careerPlan.idiomaOptimo">{{worker.careerPlan.idiomaOptimo.scholarName}}</mat-option>
+      > 
         <mat-option [value]="item" *ngFor="let item of  ListaScholar">
           {{ item.scholarName }}
         </mat-option>
@@ -389,13 +409,14 @@
    <div class="col">
     <br>
     <div class="form-control">
-      <label for="I1">idioma optimo:</label>
+      <label for="d1"><b>Idioma óptimo:</b>   {{worker.careerPlan.idiomaOptimoF.scholarName}}</label>
       <div >
         <mat-select 
+        [disabled]="editar2"
         (focus)="getIdiomas()"
           name="I1"
           [(ngModel)]="worker.careerPlan.idiomaOptimoP"
-        > <mat-option selected [value]="worker.careerPlan.idiomaOptimoP">{{worker.careerPlan.idiomaOptimoP.scholarName}}</mat-option>
+        > 
           <mat-option [value]="item" *ngFor="let item of  ListaScholar">
             {{ item.scholarName }}
           </mat-option>
@@ -408,13 +429,14 @@
   <div class="col">
     <br>
     <div class="form-control">
-      <label for="I2">idioma optimo:</label>
+      <label for="d1"><b>Idioma óptimo:</b>   {{worker.careerPlan.idiomaOptimoF.scholarName}}</label>
       <div >
         <mat-select 
+        [disabled]="editar3"
         (focus)="getIdiomas()"
           name="I2"
           [(ngModel)]="worker.careerPlan.idiomaOptimoF"
-        > <mat-option selected [value]="worker.careerPlan.idiomaOptimoF">{{worker.careerPlan.idiomaOptimoF.scholarName}}</mat-option>
+        > 
           <mat-option [value]="item" *ngFor="let item of  ListaScholar">
             {{ item.scholarName }}
           </mat-option>
@@ -433,13 +455,14 @@
       <div class="col">
       <br>
       <div class="form-control">
-        <label for="Ie">idioma Elemental:</label>
+        <label for="d1"><b>Idioma elemental:</b>   {{worker.careerPlan.idiomaelemental.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar1"
           (focus)="getIdiomas()"
             name="Ie"
             [(ngModel)]="worker.careerPlan.idiomaelemental"
-          > <mat-option selected [value]="worker.careerPlan.idiomaelemental">{{worker.careerPlan.idiomaelemental.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -453,13 +476,14 @@
      <div class="col">
       <br>
       <div class="form-control">
-        <label for="Ie1">idioma Elemental:</label>
+        <label for="d1"><b>Idioma elemental:</b>   {{worker.careerPlan.idiomaelementalP.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar2"
           (focus)="getIdiomas()"
             name="Ie1"
             [(ngModel)]="worker.careerPlan.idiomaelementalP"
-          > <mat-option selected [value]="worker.careerPlan.idiomaelementalP">{{worker.careerPlan.idiomaelementalP.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -472,13 +496,14 @@
     <div class="col">
       <br>
       <div class="form-control">
-        <label for="Ie2">idioma Elemental:</label>
+        <label for="d1"><b>Idioma elemental:</b>   {{worker.careerPlan.idiomaelementalF.scholarName}}</label>
         <div >
           <mat-select 
+          [disabled]="editar3"
           (focus)="getIdiomas()"
             name="Ie2"
             [(ngModel)]="worker.careerPlan.idiomaelementalF"
-          > <mat-option selected [value]="worker.careerPlan.idiomaelementalF">{{worker.careerPlan.idiomaelemental.scholarName}}</mat-option>
+          > 
             <mat-option [value]="item" *ngFor="let item of  ListaScholar">
               {{ item.scholarName }}
             </mat-option>
@@ -495,7 +520,7 @@
       <div class="position-relative">
 
        <div class="btn-group">
-      <button type="submit" class="btn btn-secondary" (click)="nada()">
+      <button type="submit" class="btn btn-secondary" (click)="edit1()">
         Editar
       </button>
       <button (click)="save()" class="btn btn-primary">Guardar</button>
@@ -508,7 +533,7 @@
       <div class="position-relative">
 
        <div class="btn-group">
-      <button type="submit" class="btn btn-secondary" (click)="nada()">
+      <button type="submit" class="btn btn-secondary" (click)="edit2()">
         Editar
       </button>
       <button (click)="save()" class="btn btn-primary">Guardar</button>
@@ -522,7 +547,7 @@
       <div class="position-relative">
 
        <div class="btn-group">
-      <button type="submit" class="btn btn-secondary" (click)="nada()">
+      <button type="submit" class="btn btn-secondary" (click)="edit3()">
         Editar
       </button>
       <button (click)="save()" class="btn btn-primary">Guardar</button>

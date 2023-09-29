@@ -35,13 +35,13 @@
     <tr *ngFor="let depa of depaList">
       <td>{{depa.departamentName}}</td>
       <td scope="col">
-        <button class="btn btn-info" (click)="updateDepa(depa.id)">
-          Update
+        <button class="btn btn-primary" (click)="updateDepa(depa.id)">
+          <mat-icon>loop</mat-icon>
         </button>
       </td>
       <td scope="col">
         <button class="btn btn-danger" (click)="deleteDepa(depa.id)">
-          Delete
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
 

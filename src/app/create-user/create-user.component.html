@@ -1,0 +1,48 @@
+<div clas="container-fluid">
+    <div class="position-static">
+      <div class="position-absolute top-50 start-50 translate-middle">
+        <h1>Crear usuario</h1>
+        <br />
+        <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+           <div class="col">
+          <div class="row">
+            <mat-form-field appearance="fill">
+            <input matInput required name="username"  type="text" [(ngModel)]="user.username" placeholder="Nombre de usuario" />
+            <mat-error>El campo es requerido</mat-error>
+            </mat-form-field>
+            </div>
+            <br>
+            <div class="row">
+
+                <label for="defense">Rol</label>
+                <mat-form-field appearance="fill">
+                <mat-select required name="cat" [(ngModel)]="user.roles" multiple="multiple" >
+                    <mat-option selected></mat-option>
+                    <mat-option [value]="item" *ngFor="let item of roleList">
+                      {{ item.role }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error>Seleccione Una opcion</mat-error>
+                </mat-form-field>
+              </div>
+
+
+              
+
+
+  
+  
+            <br>
+          <div class="row">
+            <mat-form-field appearance="fill">
+            <input matInput required name="salary"  type="password" [(ngModel)]="user.password" placeholder="password" />
+            <mat-error>El campo es requerido</mat-error>
+          </mat-form-field>
+          </div>
+          <br />
+          <button [disabled]="!myForm.valid" type="submit" class="btn btn-success">Actualizar</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

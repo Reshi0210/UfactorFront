@@ -57,7 +57,7 @@ getWorkerById(id:number):Observable<Worker>{
   return this.httpc.get<Worker>(`${this.findByidUrl}/${id}`);
 }
 
-updateWorker(id:number,worker:Worker):Observable<object>{
+updateWorker(id:Number,worker:Worker):Observable<object>{
   return this.httpc.put(`${this.updateUrl}/${id}`,worker)
  }
 

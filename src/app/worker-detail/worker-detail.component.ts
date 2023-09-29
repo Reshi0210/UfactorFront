@@ -28,16 +28,18 @@ export class WorkerDetailComponent implements OnInit, AfterContentInit,DoCheck{
     HtmlElementToReport:HTMLElement;
     WorkerToReport:Worker;
     ListaScholar:Scholarship[];
-    any:any;
-    anyL:any[];
     level:String;
+    editar1:boolean=true;
+    editar2:boolean=true;
+    editar3:boolean=true;
   
-    nada(){};
+    
 
 
   ngOnInit(): void {
     this.id = this.aroute.snapshot.params['id'];
     this.getWorkerById();
+   
   }
   ngAfterContentInit(): void {
     this.HtmlElementToReport=document.getElementById("details");
@@ -85,14 +87,35 @@ getPostgrados(){
 
 
 getScholarByLevel(level:String){
-this.scholarS.findByLevel(level).subscribe(data=>{this.ListaScholar=data})
+this.scholarS.findByLevel(level).subscribe(data=>{this.ListaScholar=data
+
+
+})
+
 }
 
 save(){
-this.createWorkerService.createWorker(this.worker).subscribe(data=>{
+this.createWorkerService.updateWorker(this.worker.id,this.worker).subscribe(data=>{
   console.log(data);
   alert("Actualizado")
   })
 }
+edit1(){
+  if(this.editar1) 
+  this.editar1=false
+else this.editar1=true;
+};
+edit2(){
+  if(this.editar2) 
+  this.editar2=false
+else this.editar2=true;
+};
+
+edit3(){
+  if(this.editar3) 
+  this.editar3=false
+else this.editar3=true;
+};
+
 
 }
