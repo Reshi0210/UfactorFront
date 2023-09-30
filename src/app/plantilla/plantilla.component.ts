@@ -10,6 +10,7 @@ import { CreateWorkerService } from '../Services/create-worker.service';
 import { FilterService } from '../Services/filter.service';
 import { delay } from 'rxjs';
 import { Page } from '../page';
+import { EscolaridadService } from '../Services/escolaridad.service';
 
 
 @Component({
@@ -48,7 +49,12 @@ export class PlantillaComponent implements OnInit ,AfterContentInit,DoCheck {
 
 
 
-  constructor(private plantS:PlantillaServiceService,private route:Router,private createWorkerService:CreateWorkerService,private filters:FilterService) { }
+  constructor(private plantS:PlantillaServiceService,private route:Router,
+              private createWorkerService:CreateWorkerService,
+              private filters:FilterService,
+              private scholarService:EscolaridadService
+              ) { }
+
   ngDoCheck(): void {
     this.lista=this.workers;
   }
@@ -61,6 +67,7 @@ export class PlantillaComponent implements OnInit ,AfterContentInit,DoCheck {
 
   ngOnInit(): void {
     this.getall();
+    this.getAllScholarship();
     this.vaciar();
   }
 vaciarDepa(){
@@ -118,6 +125,11 @@ filterByCriteria(){
   })
 }
 
+filterByNed(){
+  this.filters.filterByneds(this.scholarship).subscribe(data=>this.workers=data)
+
+ 
+}
 
 filtrar(){
   this.workerExample.scholarShip=this.scholarship;
@@ -166,7 +178,10 @@ private getall(){
   this.workers=this.page.content
   });
   this.createWorkerService.getAllDepartment().subscribe(data=>{this.ListaDepartamentos=data})
-  
+  }
+
+  getAllScholarship(){
+    this.scholarService.getAll().subscribe(data=>{this.ListaScholar=data})
 
   }
 
@@ -197,10 +212,10 @@ goToWorkerDetail(id:Number){
 
   }
 
-  goToPageNext(){
+ goToPageNext(){
     if(this.pageNumber<this.page.totalPages-1){
     this.pageNumber++;
-    this.getall();}
+   this.getall();}
  
    }
    goToPagePrevious(){

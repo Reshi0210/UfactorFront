@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Worker } from '../models/worker';
 import {HttpParams} from "@angular/common/http";
 import { Statics } from '../statics';
+import { Scholarship } from '../models/scholarship';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class FilterService {
 filterbyExampleUrl:String=Statics.BaseUrl+"filterByExample"
 filterbyEUrl:String=Statics.BaseUrl+"filterE"
 filterbyCriteriaUrl:String=Statics.BaseUrl+"filterByCriteria"
+filterbyNed:String=Statics.BaseUrl+"filterByNed"
 
 
 filterByExample(workerExample:Worker,min:number,max:number):Observable<Worker[]>{
@@ -35,6 +37,9 @@ return this.httpc.post<Worker[]>(`${this.filterbyEUrl}`,workerExample,{headers})
     return this.httpc.post<Worker[]>(`${this.filterbyCriteriaUrl}`,null,{headers})
   }
 
+  filterByneds(scholarship:Scholarship):Observable<Worker[]>{
+   return this.httpc.post<Worker[]>(`${this.filterbyNed}`,scholarship);
+    }
   
 
 

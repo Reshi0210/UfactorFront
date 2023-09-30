@@ -9,9 +9,27 @@
     <button mat-button (click)="showFilters1()">
       <mat-icon>filter_alt</mat-icon>
     </button>
+
     <app-test-report [HtmlElementInput]="HtmlElementToReport" [Lista]="lista"></app-test-report>
     <button mat-button><mat-icon>search</mat-icon></button>
-    <input
+   <div class="position-relative">
+ 
+    <mat-select placeholder="Filtar por necesidad de capacitación " 
+         
+            name="Ie2"
+            [(ngModel)]="scholarship"
+          > 
+            <mat-option [value]="item" *ngFor="let item of  ListaScholar" (click)="filterByNed()">
+              {{ item.scholarName }}
+            </mat-option>
+          </mat-select>
+     
+    </div>
+    
+   
+    <button mat-button><mat-icon>search</mat-icon></button>
+    <div class="position-relative">
+    <input class="search"
       name="criteria"
       (keyup)="filterByCriteria()"
       class="form-control"
@@ -19,9 +37,18 @@
       [(ngModel)]="criteria"
       placeholder="Buscar Por CI o Nombre"
     />
+  </div>
+  
+
+    
+  <br />
+  
+  
+ 
 
   </mat-toolbar-row>
 </mat-toolbar>
+
 
 
 
@@ -295,11 +322,13 @@
   </button>
   <button (click)="vaciar()" class="btn btn-outline-primary">vaciar</button>
 </div>
-
-
-    <!--------------------------------------------------------------------------Fin---Campos--Filtro-------------------------------------------------------------------------------->
   </form>
 </div>
+ <!--------------------------------------------------------------------------Fin---Campos--Filtro-------------------------------------------------------------------------------->
+
+
+
+
 <br />
 <br />
 <br />
@@ -311,6 +340,21 @@
     <h1 id="title">Trabajadores</h1>
   </div>
 </div>
+
+
+<div class="position-relative">
+  <div class="position-absolute top-0 start-0">
+
+   
+      <br>
+</div>
+</div>
+
+<br />
+<br />
+<br />
+
+
 <br />
 <br />
 <br />
