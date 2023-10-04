@@ -38,6 +38,6 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
 
   private Islogin(url:String):boolean{
 
-    return url.search("/login")!=-1
+    return url.search("/login")!=-1 || url.search("/entidades/all")!=-1
   }
 }

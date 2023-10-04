@@ -3,6 +3,7 @@ import { User } from '../models/user';
 import { UserService } from '../Services/user.service';
 import { Route, Router } from '@angular/router';
 import { Role } from '../models/role';
+import { Entidad } from '../models/entidad';
 
 @Component({
   selector: 'app-create-user',
@@ -20,6 +21,7 @@ export class CreateUserComponent implements OnInit {
     this.usuario.role="usuario"
     this.supervisor.id=3
     this.supervisor.role="supervisor"
+    this.allEntidades()
   }
 
   user:User=new User();
@@ -31,6 +33,11 @@ export class CreateUserComponent implements OnInit {
 
  
   roleList:Role[]=[this.admin,this.usuario,this.supervisor];
+  entidadList:Entidad[];
+
+  allEntidades()   {
+  this.userService.getAllEntidades().subscribe(data=>this.entidadList=data)
+}
 
   onSubmit(){
 

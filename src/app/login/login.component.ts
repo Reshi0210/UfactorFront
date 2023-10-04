@@ -6,6 +6,8 @@ import { LoginReques } from '../models/login-reques';
 import { AuthToken } from '../models/token';
 import { LoginService } from '../Services/login.service';
 import { PlantillaServiceService } from '../Services/plantilla-service.service';
+import { Entidad } from '../models/entidad';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +16,15 @@ import { PlantillaServiceService } from '../Services/plantilla-service.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private route:Router,private logins:LoginService) { }
+  constructor(private route:Router,private logins:LoginService,private userService:UserService) { }
+
+
+
+  //entidadList:Entidad[];
+  ///entidad:Entidad;
 
   ngOnInit(): void {
+    //this.allEntidades()
   }
  request:LoginReques=new LoginReques();
 
@@ -29,6 +37,7 @@ export class LoginComponent implements OnInit {
 this.logins.login(this.request).subscribe(data=>{console.log(data)
 
   localStorage.setItem("token",data.authToken);
+  localStorage.setItem("userName",this.request.username);
   this.route.navigate(["/dashboard"]);
 },
 (error)=>{
@@ -37,13 +46,11 @@ this.logins.login(this.request).subscribe(data=>{console.log(data)
 
 
 })
-
-
-
-
-
 }
 
+//allEntidades()   {
+ // this.userService.getAllEntidades().subscribe(data=>this.entidadList=data)
+//}
 
 }
 

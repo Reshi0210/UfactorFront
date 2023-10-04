@@ -11,6 +11,9 @@ import { FilterService } from '../Services/filter.service';
 import { delay } from 'rxjs';
 import { Page } from '../page';
 import { EscolaridadService } from '../Services/escolaridad.service';
+import { User } from '../models/user';
+import { UserService } from '../Services/user.service';
+import { UsuariosComponent } from '../usuarios/usuarios.component';
 
 
 @Component({
@@ -22,6 +25,8 @@ export class PlantillaComponent implements OnInit ,AfterContentInit,DoCheck {
 
   HtmlElementToReport:HTMLElement;
   lista;
+
+ 
 
   workerExample:Worker=new Worker ();
   scholarLevel!:string;
@@ -52,7 +57,8 @@ export class PlantillaComponent implements OnInit ,AfterContentInit,DoCheck {
   constructor(private plantS:PlantillaServiceService,private route:Router,
               private createWorkerService:CreateWorkerService,
               private filters:FilterService,
-              private scholarService:EscolaridadService
+              private scholarService:EscolaridadService,
+              private userService:UserService
               ) { }
 
   ngDoCheck(): void {
@@ -69,6 +75,7 @@ export class PlantillaComponent implements OnInit ,AfterContentInit,DoCheck {
     this.getall();
     this.getAllScholarship();
     this.vaciar();
+    
   }
 vaciarDepa(){
   delete this.workerExample.department
@@ -185,6 +192,7 @@ private getall(){
 
   }
 
+
 updateWorker(id:Number){
 this.route.navigate(["dashboard/FormularioU",id]);
 }
@@ -201,6 +209,7 @@ deleteWorker(id:Number){
 
 
 }
+
 
 goToWorkerDetail(id:Number){
   this.route.navigate(["dashboard/worker-detail",id]);

@@ -12,9 +12,23 @@
 
     <app-test-report [HtmlElementInput]="HtmlElementToReport" [Lista]="lista"></app-test-report>
     <button mat-button><mat-icon>search</mat-icon></button>
+    
+    <div class="position-relative">
+    <input class="search"
+      name="criteria"
+      (keyup)="filterByCriteria()"
+      class="form-control"
+      type="text"
+      [(ngModel)]="criteria"
+      placeholder="Buscar Por CI o Nombre"/>
+     </div>
+
+
+
+
+  <button mat-button><mat-icon>search</mat-icon></button>
    <div class="position-relative">
- 
-    <mat-select placeholder="Filtar por necesidad de capacitación " 
+   <mat-select placeholder="Filtar por necesidad de capacitación " 
          
             name="Ie2"
             [(ngModel)]="scholarship"
@@ -23,31 +37,12 @@
               {{ item.scholarName }}
             </mat-option>
           </mat-select>
-     
-    </div>
-    
-   
-    <button mat-button><mat-icon>search</mat-icon></button>
-    <div class="position-relative">
-    <input class="search"
-      name="criteria"
-      (keyup)="filterByCriteria()"
-      class="form-control"
-      type="text"
-      [(ngModel)]="criteria"
-      placeholder="Buscar Por CI o Nombre"
-    />
-  </div>
-  
-
-    
-  <br />
-  
-  
- 
-
-  </mat-toolbar-row>
-</mat-toolbar>
+      </div>
+      <br />
+      
+      </mat-toolbar-row>
+      
+      </mat-toolbar>
 
 
 

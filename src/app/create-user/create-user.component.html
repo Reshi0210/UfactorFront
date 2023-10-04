@@ -26,7 +26,21 @@
                 </mat-form-field>
               </div>
 
+              <div class="row">
+                
+                <label for="defense">Entidad</label>
+                <mat-form-field appearance="fill">
+                <mat-select required name="ent" [(ngModel)]="user.entidad" >
+                    <mat-option selected></mat-option>
+                    <mat-option [value]="item" *ngFor="let item of entidadList">
+                      {{ item.name }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error>Seleccione Una opcion</mat-error>
+                </mat-form-field>
+              </div>
 
+         
               
 
 
