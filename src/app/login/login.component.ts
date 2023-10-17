@@ -20,11 +20,9 @@ export class LoginComponent implements OnInit {
 
 
 
-  //entidadList:Entidad[];
-  ///entidad:Entidad;
 
   ngOnInit(): void {
-    //this.allEntidades()
+   
   }
  request:LoginReques=new LoginReques();
 
@@ -48,9 +46,6 @@ this.logins.login(this.request).subscribe(data=>{console.log(data)
 })
 }
 
-//allEntidades()   {
- // this.userService.getAllEntidades().subscribe(data=>this.entidadList=data)
-//}
 
 }
 

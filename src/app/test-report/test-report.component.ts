@@ -25,7 +25,8 @@ CreatePdfWhitHtmlElementInput(){
 
   console.log(this.Lista);
 
-    const pdfdefinition:any={content:[{text:"Criterio de busqueda cumplido para "+" :"},
+    const pdfdefinition:any={content:[{text:"INFORME PRELIMINAR DEL LEVANTAMIENTO DE LA CALIFICACIÓN DE LOS TRABAJADORES DEL GRUPO CUBANACAN  "+"\n -"},
+    {text:"Criterio de busqueda cumplido para "+" :"},
    { text:"\n -"+
      this.CreateContentOfPdfReport()
     },

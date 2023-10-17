@@ -23,6 +23,7 @@ filterByExample(workerExample:Worker,min:number,max:number):Observable<Worker[]>
   const headers=new HttpHeaders({
     "min":min.toString(),
     "max":max.toString(),
+    "entidad":localStorage.getItem("entidad"),
 })
 
 
@@ -32,13 +33,21 @@ return this.httpc.post<Worker[]>(`${this.filterbyEUrl}`,workerExample,{headers})
   filterByCriteria(criteria:string):Observable<Worker[]>{
     const headers=new HttpHeaders({
       "criteria":criteria,
+      "entidad":localStorage.getItem("entidad"),
   })
 
     return this.httpc.post<Worker[]>(`${this.filterbyCriteriaUrl}`,null,{headers})
   }
 
   filterByneds(scholarship:Scholarship):Observable<Worker[]>{
-   return this.httpc.post<Worker[]>(`${this.filterbyNed}`,scholarship);
+
+    const headers=new HttpHeaders({
+      
+      "entidad":localStorage.getItem("entidad"),
+  })
+
+    
+   return this.httpc.post<Worker[]>(`${this.filterbyNed}`,scholarship,{headers});
     }
   
 

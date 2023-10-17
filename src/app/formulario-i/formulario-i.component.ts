@@ -10,6 +10,8 @@ import { FilterService } from '../Services/filter.service';
 import { Province } from '../models/province';
 import { Municipality } from '../models/municipality';
 import { Adress } from '../models/adress';
+import { UserService } from '../Services/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-formulario-i',
@@ -27,7 +29,7 @@ export class FormularioIComponent implements OnInit {
  street:String;
  avenue:String;
  numberOrPlace:String;
-
+ user:User;
  
 
 
@@ -44,10 +46,13 @@ export class FormularioIComponent implements OnInit {
   ListaProvincia!:Province[];
   ListaMunicipios!:Municipality[];
 
-  constructor(private createWorkerService:CreateWorkerService,private route:Router,private filterS:FilterService) { }
+  constructor(private createWorkerService:CreateWorkerService,
+    private route:Router,private filterS:FilterService,
+    private userService:UserService) { }
 
   ngOnInit(): void {
     this.getAll();
+    this.getLogedUSer();
 
   }
 
@@ -82,8 +87,7 @@ export class FormularioIComponent implements OnInit {
     this.worker.adress.street=this.street;
     this.worker.adress.avenue=this.avenue;
     this.worker.adress.numberOrPlace=this.numberOrPlace;
-    
-    
+    this.worker.entidad=this.user.entidad;
 
     console.log(this.worker)
 
@@ -105,5 +109,10 @@ console.log(data)
 })
 
  }
+
+ getLogedUSer(){
+  const userName=localStorage.getItem("userName");
+ this.userService.getlogedUser(userName).subscribe(data=>this.user=data);
+}
 
 }

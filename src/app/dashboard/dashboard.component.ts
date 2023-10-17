@@ -28,7 +28,10 @@ export class DashboardComponent implements OnInit {
 
  getLogedUSer(){
   const userName=localStorage.getItem("userName");
- this.userService.getlogedUser(userName).subscribe(data=>this.user=data);
+ this.userService.getlogedUser(userName).subscribe(data=>{this.user=data
+  localStorage.setItem("entidad",data.entidad.name.toString())
+
+});
 }
 
 }
