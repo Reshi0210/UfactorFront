@@ -17,6 +17,7 @@
 </mat-toolbar>
 
 
+
   <mat-sidenav-container  >
 
    <mat-sidenav [(opened)]="opened" mode="side">  
@@ -27,11 +28,11 @@
 
        <mat-list>
 
-        <mat-list-item routerLink="calificadores"> Nomencladores </mat-list-item>
+        <mat-list-item routerLink="calificadores" (click)="changeImg()"> Nomencladores </mat-list-item>
 
-         <mat-list-item routerLink="plantilla"> Trabajadores </mat-list-item>
+         <mat-list-item routerLink="plantilla" (click)="changeImg()"> Trabajadores </mat-list-item>
 
-         <mat-list-item routerLink="usuarios"> Usuarios </mat-list-item>
+         <mat-list-item routerLink="usuarios" (click)="changeImg()"> Usuarios </mat-list-item>
 
          <mat-list-item ><mat-icon (click)="logOut()">logout</mat-icon><p (click)="logOut()">  cerrar Session</p> </mat-list-item>
 
@@ -44,8 +45,10 @@
 
    <mat-sidenav-content>
     <router-outlet></router-outlet>
+    <img *ngIf="img" src="./assets/fondo.jpg">
 
 
    </mat-sidenav-content>
+   
 
   </mat-sidenav-container>

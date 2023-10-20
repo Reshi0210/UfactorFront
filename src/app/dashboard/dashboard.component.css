@@ -6,3 +6,7 @@ mat-sidenav{
   width: 200px;
   background-color: rgb(252, 253, 253);
 }
+img{ width: 100%;
+     height:100% ;
+    opacity: 0.8;
+}

@@ -138,7 +138,7 @@ export class PlantillaComponent implements OnInit, AfterContentInit, DoCheck {
 
   filterByNed() {
     this.filters.filterByneds(this.scholarship).subscribe(data => this.workers = data)
-
+    
 
   }
 
@@ -146,7 +146,7 @@ export class PlantillaComponent implements OnInit, AfterContentInit, DoCheck {
     this.workerExample.scholarShip = this.scholarship;
     this.workerExample.scholarShip.scholarLevel = this.scholarLevel;
     console.log(this.workerExample);
-
+   
 
 
     this.filters.filterByExample(this.workerExample, this.min, this.max).subscribe(data => { this.workers = data })

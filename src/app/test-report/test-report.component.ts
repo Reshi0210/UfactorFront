@@ -4,6 +4,7 @@ import  pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas'
+import { Scholarship } from '../models/scholarship';
 
 
 @Component({
@@ -16,18 +17,40 @@ export class TestReportComponent implements OnInit {
   @Input() HtmlElementInput:HTMLElement;
   @Input() Lista:any[];
 
+
+
+mostrar="Resultado de aplicar filtros, criterios cumplidos para:"
+
+
+
+l=localStorage.getItem("ned")
+
+
+
   constructor() { }
 
-   ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
+
+  
 
 
-CreatePdfWhitHtmlElementInput(){
+  async CreatePdfWhitHtmlElementInput(){
 
   console.log(this.Lista);
 
-    const pdfdefinition:any={content:[{text:"INFORME PRELIMINAR DEL LEVANTAMIENTO DE LA CALIFICACIÓN DE LOS TRABAJADORES DEL GRUPO CUBANACAN  "+"\n -"},
-    {text:"Criterio de busqueda cumplido para "+" :"},
-   { text:"\n -"+
+
+
+    const pdfdefinition:any={content:[ 
+
+      {image: await this.getBase64ImageFromURL(),},
+
+
+      {text:"INFORME PRELIMINAR DEL LEVANTAMIENTO DE LA CALIFICACIÓN DE LOS TRABAJADORES DEL GRUPO CUBANACAN  "+"\n "},
+
+    {text:this.mostrar},
+   { text:"\n "+
      this.CreateContentOfPdfReport()
     },
 
@@ -68,12 +91,44 @@ CreatePdfWhitHtmlElementInput(){
 
  CreateContentOfPdfReport():String{
 
-  var result:String=""
-  this.Lista.forEach((worker)=>{ result+=worker.firstName+"  \n-"})
+  var result:String=
+   "\n" +"----------------------------------------------------------------------------------------------------------------------------------------------------------"+"\n"
+
+  this.Lista.forEach((worker)=>{ result+="ci:"+worker.ci+"«»"+worker.firstName+ " "+ worker.secondName+" "+worker.lastName+"«»"+worker.scholarShip.scholarName+ "«»"+worker.entidad.name + "\n-"
+  +"----------------------------------------------------------------------------------------------------------------------------------------------------------"+"\n"})
 
 
    return result
  }
+
+
+
+
+ getBase64ImageFromURL() {
+  return new Promise((resolve, reject) => {
+    var img = new Image();
+    img.setAttribute("crossOrigin", "anonymous");
+
+    img.onload = () => {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      var dataURL = canvas.toDataURL("image/jpg");
+
+      resolve(dataURL);
+    };
+
+    img.onerror = error => {
+      reject(error);
+    };
+
+    img.src =  "./assets/logo.jpg"
+  });
+}
 
 
 
@@ -82,4 +137,4 @@ CreatePdfWhitHtmlElementInput(){
 
 
 
-
+ 

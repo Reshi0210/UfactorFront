@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   opened=false;
   showFiller = false;
   user:User;
+  img=true
 
  logOut(){
  localStorage.clear();
@@ -32,6 +33,10 @@ export class DashboardComponent implements OnInit {
   localStorage.setItem("entidad",data.entidad.name.toString())
 
 });
+}
+
+changeImg(){
+  this.img=false
 }
 
 }
